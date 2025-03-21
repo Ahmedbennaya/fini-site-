@@ -1,6 +1,3 @@
 [build]
   command = "npm run build"
-  publish = "site/build"
-
-[build.environment]
-  GO_VERSION = "1.19"
+  publish = "site/dist"
