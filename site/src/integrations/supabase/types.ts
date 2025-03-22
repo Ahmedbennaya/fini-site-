@@ -218,6 +218,7 @@ export type Database = {
           id: string
           is_admin: boolean
           last_name: string | null
+          role: string | null
         }
         Insert: {
           avatar_url?: string | null
@@ -226,6 +227,7 @@ export type Database = {
           id: string
           is_admin?: boolean
           last_name?: string | null
+          role?: string | null
         }
         Update: {
           avatar_url?: string | null
@@ -234,6 +236,7 @@ export type Database = {
           id?: string
           is_admin?: boolean
           last_name?: string | null
+          role?: string | null
         }
         Relationships: []
       }

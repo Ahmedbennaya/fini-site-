@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { CheckCircle2, ChevronRight, Filter, X, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -29,7 +28,7 @@ const products = [
     id: 1,
     name: 'Velours Royal',
     description: 'Un velours épais qui apporte chaleur et élégance à votre espace.',
-    price: '120€ / m²',
+    price: '150 DT / m', // Updated price
     image: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=2574&auto=format&fit=crop',
     category: 'premium',
     material: 'velours'
@@ -38,7 +37,7 @@ const products = [
     id: 2,
     name: 'Soie Lumineuse',
     description: 'Rideau en soie pure avec des reflets lumineux qui subliment la lumière naturelle.',
-    price: '150€ / m²',
+    price: '450 DT / m²', // Updated price
     image: 'https://images.unsplash.com/photo-1464198016405-33fd4527b89d?q=80&w=2574&auto=format&fit=crop',
     category: 'premium',
     material: 'soie'
@@ -47,7 +46,7 @@ const products = [
     id: 3,
     name: 'Lin Contemporain',
     description: 'Un lin de qualité supérieure pour un style contemporain et intemporel.',
-    price: '90€ / m²',
+    price: '270 DT / m', // Updated price
     image: 'https://images.unsplash.com/photo-1549187774-b4e9b0445b41?q=80&w=2574&auto=format&fit=crop',
     category: 'classic',
     material: 'lin'
@@ -56,7 +55,7 @@ const products = [
     id: 4,
     name: 'Voilage Élégance',
     description: 'Voilage délicat qui filtre la lumière tout en préservant votre intimité.',
-    price: '75€ / m²',
+    price: '225 DT / m', // Updated price
     image: 'https://images.unsplash.com/photo-1556912998-c57cc6b63cd7?q=80&w=2531&auto=format&fit=crop',
     category: 'voilages',
     material: 'synthetique'
@@ -65,7 +64,7 @@ const products = [
     id: 5,
     name: 'Coton Naturel',
     description: 'Rideau en coton naturel, idéal pour un style épuré et écologique.',
-    price: '85€ / m²',
+    price: '255 DT / m', // Updated price
     image: 'https://images.unsplash.com/photo-1540638349517-3abd5afc5847?q=80&w=2574&auto=format&fit=crop',
     category: 'classic',
     material: 'coton'
@@ -74,7 +73,7 @@ const products = [
     id: 6,
     name: 'Textile Jacquard',
     description: 'Textile d\'ameublement avec motifs jacquard pour un intérieur sophistiqué.',
-    price: '130€ / m²',
+    price: '390 DT / m', // Updated price
     image: 'https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?q=80&w=2670&auto=format&fit=crop',
     category: 'textiles',
     material: 'coton'

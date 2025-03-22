@@ -1,6 +1,6 @@
-
 import { supabase } from './supabase';
 import { Tables, TablesInsert } from './supabase';
+import { toast } from '@/components/ui/use-toast';
 
 // =========== PRODUCTS API ===========
 
@@ -9,43 +9,53 @@ export async function getProducts(options?: {
   category?: string, 
   limit?: number
 }) {
-  let query = supabase.from('products').select('*');
-  
-  if (options?.featured) {
-    query = query.eq('is_featured', true);
+  try {
+    let query = supabase.from('products').select('*');
+    
+    if (options?.featured) {
+      query = query.eq('is_featured', true);
+    }
+    
+    if (options?.category) {
+      query = query.eq('category', options.category);
+    }
+    
+    if (options?.limit) {
+      query = query.limit(options.limit);
+    }
+    
+    const { data, error } = await query.eq('is_active', true);
+    
+    if (error) {
+      console.error('Error fetching products:', error);
+      throw error;
+    }
+    
+    return data || [];
+  } catch (error) {
+    console.error('Error in getProducts:', error);
+    return [];
   }
-  
-  if (options?.category) {
-    query = query.eq('category', options.category);
-  }
-  
-  if (options?.limit) {
-    query = query.limit(options.limit);
-  }
-  
-  const { data, error } = await query.eq('is_active', true);
-  
-  if (error) {
-    console.error('Error fetching products:', error);
-    throw error;
-  }
-  
-  return data || [];
 }
 
 export async function getProductById(id: string) {
-  const { data, error } = await supabase
-    .from('products')
-    .select('*')
-    .eq('id', id)
-    .single();
+  try {
+    const { data, error } = await supabase
+      .from('products')
+      .select('*')
+      .eq('id', id)
+      .single();
+      
+    if (error) {
+      console.error('Error fetching product:', error);
+      throw error;
+    }
     
-  if (error) {
-    console.error('Error fetching product:', error);
+    return data;
+  } catch (error) {
+    console.error('Error in getProductById:', error);
     throw error;
   }
-  
-  return data;
 }
 
 export async function createProduct(product: TablesInsert['products']) {
@@ -96,31 +106,41 @@ export async function deleteProduct(id: string) {
 // =========== CATEGORIES API ===========
 
 export async function getCategories() {
-  const { data, error } = await supabase
-    .from('categories')
-    .select('*');
+  try {
+    const { data, error } = await supabase
+      .from('categories')
+      .select('*');
+      
+    if (error) {
+      console.error('Error fetching categories:', error);
+      throw error;
+    }
     
-  if (error) {
-    console.error('Error fetching categories:', error);
-    throw error;
+    return data || [];
+  } catch (error) {
+    console.error('Error in getCategories:', error);
+    return [];
   }
-  
-  return data || [];
 }
 
 export async function getCategoryBySlug(slug: string) {
-  const { data, error } = await supabase
-    .from('categories')
-    .select('*')
-    .eq('slug', slug)
-    .single();
+  try {
+    const { data, error } = await supabase
+      .from('categories')
+      .select('*')
+      .eq('slug', slug)
+      .single();
+      
+    if (error) {
+      console.error('Error fetching category:', error);
+      throw error;
+    }
     
-  if (error) {
-    console.error('Error fetching category:', error);
+    return data;
+  } catch (error) {
+    console.error('Error in getCategoryBySlug:', error);
     throw error;
   }
-  
-  return data;
 }
 
 // =========== ORDERS API ===========
@@ -242,44 +262,59 @@ export async function addUserAddress(address: TablesInsert['addresses']) {
 // =========== USER PROFILE API ===========
 
 export async function getUserProfile(userId: string) {
-  const { data, error } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', userId)
-    .single();
+  try {
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('id', userId)
+      .single();
+      
+    if (error) {
+      console.error('Error fetching user profile:', error);
+      throw error;
+    }
     
-  if (error) {
-    console.error('Error fetching user profile:', error);
+    return data;
+  } catch (error) {
+    console.error('Error in getUserProfile:', error);
     throw error;
   }
-  
-  return data;
 }
 
 export async function updateUserProfile(userId: string, updates: Partial<TablesInsert['profiles']>) {
-  const { data, error } = await supabase
-    .from('profiles')
-    .update(updates)
-    .eq('id', userId)
-    .select('*')
-    .single();
+  try {
+    const { data, error } = await supabase
+      .from('profiles')
+      .update(updates)
+      .eq('id', userId)
+      .select('*')
+      .single();
+      
+    if (error) {
+      console.error('Error updating user profile:', error);
+      throw error;
+    }
     
-  if (error) {
-    console.error('Error updating user profile:', error);
+    return data;
+  } catch (error) {
+    console.error('Error in updateUserProfile:', error);
     throw error;
   }
-  
-  return data;
 }
 
-// Check if current user is admin
+// Check if current user is admin - updated to use our secure function
 export async function checkIsAdmin() {
-  const { data, error } = await supabase.rpc('get_user_role');
-  
-  if (error) {
-    console.error('Error checking admin status:', error);
+  try {
+    const { data, error } = await supabase.rpc('get_user_role');
+    
+    if (error) {
+      console.error('Error checking admin status:', error);
+      return false;
+    }
+    
+    return data === 'admin';
+  } catch (error) {
+    console.error('Error in checkIsAdmin:', error);
     return false;
   }
-  
-  return data === 'admin';
 }

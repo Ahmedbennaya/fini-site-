@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ChevronRight } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
-import { supabase } from '@/lib/supabase';
+import { getProducts } from '@/lib/api';
 
 const ProductShowcase = () => {
   const { t } = useTranslation();
@@ -14,19 +14,12 @@ const ProductShowcase = () => {
   const { data: products = [], isLoading } = useQuery({
     queryKey: ['featured-products'],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from('products')
-        .select('*')
-        .eq('is_active', true)
-        .eq('is_featured', true)
-        .limit(4);
-        
-      if (error) {
+      try {
+        return await getProducts({ featured: true, limit: 4 });
+      } catch (error) {
         console.error('Error fetching products:', error);
-        throw error;
+        return [];
       }
-      
-      return data || [];
     }
   });
 
@@ -72,7 +65,6 @@ const ProductShowcase = () => {
             {t('products.subtitle')}
           </p>
           
-          {/* Category Filters */}
           <div className="flex flex-wrap justify-center gap-2 mt-8">
             {categories.map(category => (
               <button
@@ -90,7 +82,6 @@ const ProductShowcase = () => {
           </div>
         </div>
 
-        {/* Products Grid */}
         {isLoading ? (
           <div className="flex justify-center items-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-luxury-800"></div>
@@ -102,7 +93,7 @@ const ProductShowcase = () => {
                 key={product.id}
                 id={`product-${product.id}`}
                 className={`relative group overflow-hidden rounded-sm transition-all duration-500 ${
-                  visibleProducts.includes(parseInt(product.id)) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                  visibleProducts.includes(parseInt(product.id.toString())) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                 }`}
               >
                 <div className="aspect-[4/3] overflow-hidden">
@@ -116,11 +107,12 @@ const ProductShowcase = () => {
                 <div className="absolute bottom-0 left-0 p-6 w-full">
                   <h3 className="text-xl md:text-2xl font-medium text-white mb-2">{product.name}</h3>
                   <p className="text-white/80 mb-4 max-w-md">{product.description}</p>
-                  <Link to={`/products/${product.id}`} className="text-white flex items-center group">
-                    <span className="border-b border-white/30 group-hover:border-white transition-all">
-                      {t('buttons.viewDetails')}
-                    </span>
-                    <ChevronRight size={16} className="ml-1 transition-transform group-hover:translate-x-1" />
+                  <Link 
+                    to={`/products/${product.id}`} 
+                    className="text-white flex items-center group hover:underline"
+                  >
+                    <span>{t('buttons.viewDetails')}</span>
+                    <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
