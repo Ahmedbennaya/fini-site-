@@ -4,7 +4,7 @@ import { Menu, X, User } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import LanguageSelector from './LanguageSelector';
 import { useAuth } from '@/context/AuthContext';
-import logo from '@/components/public/LOGO NOIR.png'; // Keep the logo unchanged
+const logo = '/LOGO NOIR.png'; // Keep the logo unchanged
 
 const NavbarTranslated = () => {
   const [isOpen, setIsOpen] = useState(false);
