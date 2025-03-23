@@ -132,21 +132,18 @@ const Index = () => {
             </div>
             
             <div className="order-1 lg:order-2 relative">
-              <div className="relative z-10 slide-up">
-                <img 
-                  src="https://images.unsplash.com/photo-1499916078039-922301b0eb83?q=80&w=2660&auto=format&fit=crop" 
-                  alt="Artisan travaillant sur un rideau"
-                  className="rounded-sm"
-                />
-              </div>
-              <div className="absolute -bottom-10 -left-10 w-2/3 z-0 slide-up stagger-2">
-                <img 
-                  src="https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=2127&auto=format&fit=crop" 
-                  alt="Détail d'un tissu"
-                  className="rounded-sm border-8 border-white shadow-xl"
-                />
-              </div>
-            </div>
+  <div className="relative z-10 slide-up ">
+   
+  </div>
+  <div className="relative z-10 slide-up">
+    <img 
+      src="https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=2127&auto=format&fit=crop" 
+      alt="Détail d'un tissu"
+      className="rounded-sm border-8 border-white shadow-xl"
+    />
+  </div>
+</div>
+
           </div>
         </div>
       </section>

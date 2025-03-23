@@ -1,73 +1,135 @@
-
 import { supabase } from '@/integrations/supabase/client';
+import { toast } from '@/components/ui/use-toast';
+import { v4 as uuidv4 } from 'uuid';
+import { uploadProductImages } from './upload-products';
 
-// Upload a file to Supabase Storage
+// Upload a file to Supabase Storage with improved error handling and file naming
 export async function uploadFile(
-  bucketName: string, 
-  filePath: string, 
-  file: File
+  bucketName: 'products' | 'avatars', 
+  file: File, 
+  userId?: string,
+  customFileName?: string
 ) {
-  const { data, error } = await supabase.storage
-    .from(bucketName)
-    .upload(filePath, file, {
-      cacheControl: '3600',
-      upsert: false
-    });
+  try {
+    const fileExt = file.name.split('.').pop();
+    const fileName = customFileName 
+      ? `${customFileName}.${fileExt}` 
+      : userId 
+        ? `${userId}/${uuidv4()}.${fileExt}` 
+        : `${uuidv4()}.${fileExt}`;
     
-  if (error) {
-    console.error('Error uploading file:', error);
+    const filePath = `${fileName}`;
+    
+    const { data, error } = await supabase.storage
+      .from(bucketName)
+      .upload(filePath, file, {
+        cacheControl: '3600',
+        upsert: true
+      });
+      
+    if (error) {
+      console.error('Error uploading file:', error);
+      toast({
+        title: "Upload failed",
+        description: error.message,
+        variant: "destructive"
+      });
+      throw error;
+    }
+    
+    return {
+      path: data.path,
+      publicUrl: getPublicUrl(bucketName, data.path)
+    };
+  } catch (error: any) {
+    console.error('Error in uploadFile:', error);
     throw error;
   }
-  
-  return data;
 }
 
 // Get a public URL for a file
-export function getPublicUrl(bucketName: string, filePath: string) {
-  const { data } = supabase.storage
-    .from(bucketName)
-    .getPublicUrl(filePath);
-    
-  return data.publicUrl;
+export function getPublicUrl(bucketName: 'products' | 'avatars', filePath: string) {
+  try {
+    const { data } = supabase.storage
+      .from(bucketName)
+      .getPublicUrl(filePath);
+      
+    return data.publicUrl;
+  } catch (error) {
+    console.error('Error in getPublicUrl:', error);
+    return '';
+  }
 }
 
-// Delete a file
-export async function deleteFile(bucketName: string, filePath: string) {
-  const { error } = await supabase.storage
-    .from(bucketName)
-    .remove([filePath]);
+// Delete a file from storage
+export async function deleteFile(bucketName: 'products' | 'avatars', filePath: string) {
+  try {
+    const { error } = await supabase.storage
+      .from(bucketName)
+      .remove([filePath]);
+      
+    if (error) {
+      console.error('Error deleting file:', error);
+      toast({
+        title: "Delete failed",
+        description: error.message,
+        variant: "destructive"
+      });
+      throw error;
+    }
     
-  if (error) {
-    console.error('Error deleting file:', error);
+    return true;
+  } catch (error) {
+    console.error('Error in deleteFile:', error);
     throw error;
   }
-  
-  return true;
 }
 
-// Upload a product image and return its public URL
+// Upload a product image with enhanced functionality
 export async function uploadProductImage(file: File, productId: string) {
-  const fileExt = file.name.split('.').pop();
-  const fileName = `${productId}_${Date.now()}.${fileExt}`;
-  const filePath = `products/${fileName}`;
-  
-  await uploadFile('products', filePath, file);
-  return getPublicUrl('products', filePath);
+  try {
+    const result = await uploadFile('products', file, undefined, productId);
+    return result.publicUrl;
+  } catch (error) {
+    console.error('Error in uploadProductImage:', error);
+    throw error;
+  }
 }
 
-// Upload a user avatar and return its public URL
+// Upload a user avatar with enhanced functionality
 export async function uploadUserAvatar(file: File, userId: string) {
-  const fileExt = file.name.split('.').pop();
-  const fileName = `${userId}.${fileExt}`;
-  const filePath = `avatars/${fileName}`;
-  
-  // Delete existing avatar if any
   try {
-    await deleteFile('avatars', filePath);
+    const result = await uploadFile('avatars', file, userId, userId);
+    return result.publicUrl;
   } catch (error) {
-    // Ignore error if file doesn't exist
+    console.error('Error in uploadUserAvatar:', error);
+    throw error;
   }
-  
-  await uploadFile('avatars', filePath, file);
-  return getPublicUrl('avatars', filePath);
+}
+
+// Initialize product images
+export async function initializeProductImages() {
+  try {
+    toast({
+      title: "Initializing product images",
+      description: "Downloading and uploading product images, please wait...",
+    });
+    
+    await uploadProductImages();
+    
+    toast({
+      title: "Success",
+      description: "Product images have been successfully initialized.",
+    });
+    
+    return true;
+  } catch (error) {
+    console.error('Error initializing product images:', error);
+    toast({
+      title: "Error",
+      description: "Failed to initialize product images. Check console for details.",
+      variant: "destructive"
+    });
+    return false;
+  }
 }

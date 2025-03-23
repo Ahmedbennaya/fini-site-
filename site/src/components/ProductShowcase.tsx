@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -88,35 +87,47 @@ const ProductShowcase = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {filteredProducts.map(product => (
-              <div 
-                key={product.id}
-                id={`product-${product.id}`}
-                className={`relative group overflow-hidden rounded-sm transition-all duration-500 ${
-                  visibleProducts.includes(parseInt(product.id.toString())) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                }`}
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img 
-                    src={product.images[0]} 
-                    alt={product.name} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+            {filteredProducts.map(product => {
+              // Ensure images is an array
+              const images =
+                typeof product.images === 'string'
+                  ? JSON.parse(product.images)
+                  : product.images;
+
+              return (
+                <div 
+                  key={product.id}
+                  id={`product-${product.id}`}
+                  className={`relative group overflow-hidden rounded-sm transition-all duration-500 ${
+                    visibleProducts.includes(parseInt(product.id.toString())) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                  }`}
+                >
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={
+                        Array.isArray(images) && images.length > 0
+                          ? images[0]
+                          : '/placeholder.svg'
+                      }
+                      alt={product.name}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-luxury-950 to-transparent opacity-60"></div>
+                  <div className="absolute bottom-0 left-0 p-6 w-full">
+                    <h3 className="text-xl md:text-2xl font-medium text-white mb-2">{product.name}</h3>
+                    <p className="text-white/80 mb-4 max-w-md">{product.description}</p>
+                    <Link 
+                      to={`/products/${product.id}`} 
+                      className="text-white flex items-center group hover:underline"
+                    >
+                      <span>{t('buttons.viewDetails')}</span>
+                      <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-luxury-950 to-transparent opacity-60"></div>
-                <div className="absolute bottom-0 left-0 p-6 w-full">
-                  <h3 className="text-xl md:text-2xl font-medium text-white mb-2">{product.name}</h3>
-                  <p className="text-white/80 mb-4 max-w-md">{product.description}</p>
-                  <Link 
-                    to={`/products/${product.id}`} 
-                    className="text-white flex items-center group hover:underline"
-                  >
-                    <span>{t('buttons.viewDetails')}</span>
-                    <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
 
