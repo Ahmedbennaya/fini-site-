@@ -124,6 +124,11 @@ const Products = () => {
     return categoryMatch && materialMatch && searchMatch;
   });
 
+  console.log('Selected Category:', selectedCategory);
+  console.log('Selected Material:', selectedMaterial);
+  console.log('Search Query:', searchQuery);
+  console.log('Filtered Products:', filteredProducts);
+
   return (
     <main className="pt-24">
       {/* Hero Section */}

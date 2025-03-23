@@ -20,10 +20,8 @@ const NavbarTranslated = () => {
 
       // Debugging animation-related logic
       const animationObject = { isScrolled };
-      console.log('Animation object:', animationObject);
 
       if (isScrolled) {
-        console.log('Navbar animation triggered');
       }
     };
 

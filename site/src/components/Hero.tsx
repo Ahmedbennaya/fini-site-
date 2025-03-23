@@ -16,10 +16,8 @@ const Hero = () => {
 
   // Debugging animation-related logic
   const animationObject = { loaded };
-  console.log('Animation object:', animationObject);
 
   if (loaded) {
-    console.log('Animation is ready');
   }
 
   return (

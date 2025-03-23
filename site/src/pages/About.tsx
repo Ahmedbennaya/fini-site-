@@ -263,16 +263,16 @@ const About = () => {
             <div className="bg-white rounded-sm overflow-hidden shadow-sm slide-up stagger-2">
               <div className="aspect-[4/3]">
                 <img 
-                  src="https://images.unsplash.com/photo-1580894742597-87bc8789db3d?q=80&w=2670&auto=format&fit=crop" 
-                  alt="Leila Bargaoui - Directrice artistique" 
+                  src="https://scontent.ftun2-2.fna.fbcdn.net/v/t39.30808-6/242185550_4244420348946302_4524954644133877537_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Gi-iQi1K2NkQ7kNvgFV0y8C&_nc_oc=AdkWuFgk61RVSo8bcXmh64E6RI1WGQbY6txaYpf08TkGJe9WtoJnCpoyoH6HWT4cifI&_nc_zt=23&_nc_ht=scontent.ftun2-2.fna&_nc_gid=j8hpmYM2TkntLA6mo2GYYQ&oh=00_AYF0thcbwDxeZWQvoXimf_BHM_keFlkss1NrrnhUefTjkQ&oe=67E66656" 
+                  alt="Mohamed Ali Attiya" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6">
-                <h3 className="heading-sm mb-1">Leila Bargaoui</h3>
-                <p className="text-luxury-600 text-sm mb-4">Directrice artistique</p>
+                <h3 className="heading-sm mb-1">Mohamed Ali Attiya</h3>
+                <p className="text-luxury-600 text-sm mb-4">directeur général</p>
                 <p className="text-luxury-600">
-                  Forte d'une formation en design d'intérieur, Leila apporte une vision contemporaine aux créations traditionnelles de Bargaoui Rideaux.
+                Avec une expertise approfondie dans le domaine du textile, Mohamed Ali Attiya dirige Bargaoui Rideaux avec une vision stratégique et un engagement envers l’excellence..
                 </p>
               </div>
             </div>
@@ -281,16 +281,16 @@ const About = () => {
             <div className="bg-white rounded-sm overflow-hidden shadow-sm slide-up stagger-3">
               <div className="aspect-[4/3]">
                 <img 
-                  src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=2574&auto=format&fit=crop" 
-                  alt="Ahmed Khelifi - Maître artisan" 
+                  src="https://scontent.ftun2-2.fna.fbcdn.net/v/t1.6435-9/133082169_1736787693155249_6303303625634809209_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=YgvQCQCOw5sQ7kNvgH1mbjx&_nc_oc=Adk-BRTc6tnuhH3CUioaBXv9jV6rV41eVWsxrj-NvpApHL6u8MdfKgGgGkhptdio6uA&_nc_zt=23&_nc_ht=scontent.ftun2-2.fna&_nc_gid=3GqwGROjBmZi3kPZ5Svfrg&oh=00_AYFIvneHE_gE3CVfgjiASRG-ae__TAk-905zuRu4ZVMqOA&oe=6807E6E8" 
+                  alt="Islem Tlili" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6">
-                <h3 className="heading-sm mb-1">Ahmed Khelifi</h3>
-                <p className="text-luxury-600 text-sm mb-4">Maître artisan</p>
+                <h3 className="heading-sm mb-1">Islem Tlili</h3>
+                <p className="text-luxury-600 text-sm mb-4">architecture d’intérieur</p>
                 <p className="text-luxury-600">
-                  Avec 25 ans d'expérience, Ahmed supervise la production et forme les jeunes artisans aux techniques traditionnelles.
+                Avec une expertise en architecture d’intérieur, Islem Tlili apporte une touche contemporaine et raffinée aux créations de Bargaoui Rideaux, alliant esthétique et fonctionnalité..
                 </p>
               </div>
             </div>
