@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bargaoui Rideaux Tahar </title>
+    <title>Bargaoui Rideaux Tahar</title>
     
     <meta name="description" content="Bargaoui Rideaux, spécialiste des rideaux et textiles d'ameublement de luxe sur mesure depuis 1998. Qualité, élégance et savoir-faire artisanal." />
     <meta name="author" content="Bargaoui Rideaux" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <meta name="google-site-verification" content="cCV_UCZDUYDHybn45Ucq3IbWbIRLvXTG00WQIs-AUMY" />
     <meta name="google-site-verification" content="09qVE8lnBmrpiKprrOe4AKf3hn3PrcDG946qlUzIIlo" />
-    <meta property="og:image" content="https://res.cloudinary.com/dc1zy9h63/image/upload/v1730639995/LOGO_BLANC_1_1_yp0z5k.png" />
+    <meta property="og:image" content="/LOGO_NOIR.png" />
     <meta property="og:title" content="Bargaoui Rideaux - Créateur de rideaux et textiles d'ameublement de luxe" />
     <meta property="og:description" content="Bargaoui Rideaux, spécialiste des rideaux et textiles d'ameublement de luxe sur mesure depuis 1998. Qualité, élégance et savoir-faire artisanal." />
     <meta property="og:type" content="website" />
@@ -32,11 +32,22 @@
     </script>
     <!-- End Meta Pixel Code -->
 
+    <!-- Structured Data for Logo -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Bargaoui Rideaux",
+      "url": "https://bargaoui-rideauxtahar.netlify.app",
+      "logo": "https://bargaoui-rideauxtahar.netlify.app/LOGO_NOIR.png"
+    }
+    </script>
+
     <!-- Add Noto Sans Arabic for better Arabic font support -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Add the logo as a favicon -->
-    <link rel="icon" type="image/png" href="/LOGO NOIR.png" />
+    <link rel="icon" type="image/png" href="/LOGO_NOIR.png" />
   </head>
 
   <body>
@@ -52,5 +63,21 @@
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
+
+    <script>
+      // Disable right-click
+      document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+        alert('Right-click is disabled on this site.');
+      });
+
+      // Disable certain key combinations (e.g., F12, Ctrl+Shift+I)
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+          e.preventDefault();
+          alert('Developer tools are disabled on this site.');
+        }
+      });
+    </script>
   </body>
 </html>
