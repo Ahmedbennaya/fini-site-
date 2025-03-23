@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,7 +9,7 @@ import { AuthProvider, useAuth } from "@/context/AuthContext";
 import { CartProvider } from "@/context/CartContext";
 
 // i18n
-import './i18n'; // Import our i18n configuration
+import './i18n';
 
 // Pages
 import Index from "./pages/Index";
@@ -68,12 +67,11 @@ const LanguageHandler = () => {
   const { i18n } = useTranslation();
 
   useEffect(() => {
-    // Get preferred language from localStorage or use browser language
     const savedLanguage = localStorage.getItem('preferredLanguage');
     const browserLanguage = navigator.language.split('-')[0];
     const supportedLanguages = ['fr', 'en', 'ar'];
     
-    let detectedLanguage = 'fr'; // default to French
+    let detectedLanguage = 'fr';
     
     if (savedLanguage && supportedLanguages.includes(savedLanguage)) {
       detectedLanguage = savedLanguage;
@@ -83,7 +81,6 @@ const LanguageHandler = () => {
     
     i18n.changeLanguage(detectedLanguage);
     
-    // Set RTL for Arabic - only for navbar elements
     if (detectedLanguage === 'ar') {
       document.getElementById('navbar-container')?.setAttribute('dir', 'rtl');
       document.getElementById('navbar-container')?.classList.add('rtl');
@@ -103,7 +100,7 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <Sonner />
-          <BrowserRouter>
+          <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
             <LanguageHandler />
             <NavbarTranslated />
             <Routes>
