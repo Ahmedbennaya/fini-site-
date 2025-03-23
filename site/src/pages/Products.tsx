@@ -205,10 +205,10 @@ const Products = () => {
                     {t('products.expertsAvailable')}
                   </p>
                   <Link 
-                    to="/contact" 
+                    to={`/categories/${selectedCategory}`}
                     className="btn-luxury-outline w-full flex justify-center"
                   >
-                    {t('buttons.contactUs')}
+                    {t('buttons.viewDetails')}
                   </Link>
                 </div>
               </div>
@@ -380,12 +380,15 @@ const Products = () => {
                           <span className="text-luxury-800 font-medium">{product.price}</span>
                         </div>
                         <p className="text-luxury-600 mb-4">{product.description}</p>
-                        <button className="text-luxury-800 flex items-center group">
+                        <Link
+                          to={`/materials/${product.material}`}
+                          className="text-luxury-800 flex items-center group"
+                        >
                           <span className="border-b border-luxury-300 group-hover:border-luxury-800 transition-all">
                             {t('buttons.viewDetails')}
                           </span>
                           <ChevronRight size={16} className="ml-1 transition-transform group-hover:translate-x-1" />
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   ))}

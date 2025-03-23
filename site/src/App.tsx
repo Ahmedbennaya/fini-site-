@@ -31,6 +31,7 @@ import AdminProducts from "./pages/admin/Products";
 import AdminOrders from "./pages/admin/Orders";
 import AdminCustomers from "./pages/admin/Customers";
 import AdminCategories from "./pages/admin/Categories";
+import MaterialDetails from '@/pages/MaterialDetails';
 
 // Components
 import NavbarTranslated from "./components/NavbarTranslated";
@@ -120,7 +121,7 @@ const App = () => (
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="/cart" element={<Cart />} />
-              
+              <Route path="/materials/:material" element={<MaterialDetails />} />
               {/* Protected routes */}
               <Route path="/account/*" element={<ProtectedRoute element={<Account />} />} />
               <Route path="/checkout" element={<ProtectedRoute element={<Checkout />} />} />
