@@ -35,6 +35,7 @@ import AdminCategories from "./pages/admin/Categories";
 // Components
 import NavbarTranslated from "./components/NavbarTranslated";
 import Footer from "./components/Footer";
+import { Head } from "react-day-picker";
 
 const queryClient = new QueryClient();
 
@@ -102,6 +103,10 @@ const App = () => (
           <Sonner />
           <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
             <LanguageHandler />
+            <meta
+              name="google-site-verification"
+              content="cCV_UCZDUYDHybn45Ucq3IbWbIRLvXTG00WQIs-AUMY"
+            />
             <NavbarTranslated />
             <Routes>
               {/* Public routes */}
