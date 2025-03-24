@@ -9,11 +9,11 @@
   <!-- Homepage - highest priority -->
   <url>
     <loc>https://bargaoui-rideauxtahar.netlify.app/</loc>
-    <lastmod>2024-06-01</lastmod>
+    <lastmod>2025-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://scontent.ftun2-2.fna.fbcdn.net/v/t39.30808-6/341162412_745790810344733_4036105487749517650_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=SeX8dG1TGI4Q7kNvgGcHRCy&_nc_oc=AdmKhPAW5SkqE1f4mscsdE_u1GQ7GWQJFld1P5wlv3QqUDNdGYv563HHDlckR1ecsO0&_nc_zt=23&_nc_ht=scontent.ftun2-2.fna&_nc_gid=lsLCcepqBr-gBdh28ABubw&oh=00_AYFV-Djnjf-5_9W--_QEiefKyzd07LJIwUtiskLIfTmGGw&oe=67E7C3C1</image:loc>
+      <image:loc>https://scontent.ftun2-2.fna.fbcdn.net/v/t39.30808-6/341162412_745790810344733_4036105487749517650_n.jpg?_nc_cat=101&amp;ccb=1-7&amp;_nc_sid=6ee11a&amp;_nc_ohc=SeX8dG1TGI4Q7kNvgGcHRCy&amp;_nc_oc=AdmKhPAW5SkqE1f4mscsdE_u1GQ7GWQJFld1P5wlv3QqUDNdGYv563HHDlckR1ecsO0&amp;_nc_zt=23&amp;_nc_ht=scontent.ftun2-2.fna&amp;_nc_gid=lsLCcepqBr-gBdh28ABubw&amp;oh=00_AYFV-Djnjf-5_9W--_QEiefKyzd07LJIwUtiskLIfTmGGw&amp;oe=67E7C3C1</image:loc>
       <image:title>Bargaoui Rideaux Tahar - Créateur de Rideaux de Luxe</image:title>
       <image:caption>Créateur de rideaux et textiles d'ameublement de luxe en Tunisie depuis 1998</image:caption>
     </image:image>
@@ -22,11 +22,11 @@
   <!-- Products page - very high priority -->
   <url>
     <loc>https://bargaoui-rideauxtahar.netlify.app/products</loc>
-    <lastmod>2024-06-01</lastmod>
+    <lastmod>2025-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=2574&auto=format&fit=crop</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&amp;w=2574&amp;auto=format&amp;fit=crop</image:loc>
       <image:title>Collections de Rideaux de Luxe | Bargaoui Rideaux Tahar</image:title>
       <image:caption>Découvrez nos collections exclusives de rideaux et textiles d'ameublement de luxe</image:caption>
     </image:image>
@@ -35,7 +35,7 @@
   <!-- About page - high priority -->
   <url>
     <loc>https://bargaoui-rideauxtahar.netlify.app/about</loc>
-    <lastmod>2024-06-01</lastmod>
+    <lastmod>2025-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -48,11 +48,11 @@
   <!-- Contact page - high priority -->
   <url>
     <loc>https://bargaoui-rideauxtahar.netlify.app/contact</loc>
-    <lastmod>2024-06-01</lastmod>
+    <lastmod>2025-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=2574&auto=format&fit=crop</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&amp;w=2574&amp;auto=format&amp;fit=crop</image:loc>
       <image:title>Contactez Bargaoui Rideaux Tahar | Demande de Devis Gratuit</image:title>
       <image:caption>Contactez Bargaoui Rideaux Tahar pour vos projets de rideaux sur mesure</image:caption>
     </image:image>
@@ -61,33 +61,33 @@
   <!-- Individual product pages - high priority for SEO -->
   <url>
     <loc>https://bargaoui-rideauxtahar.netlify.app/products/1</loc>
-    <lastmod>2024-06-01</lastmod>
+    <lastmod>2025-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=2574&auto=format&fit=crop</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&amp;w=2574&amp;auto=format&amp;fit=crop</image:loc>
       <image:title>Velours Royal</image:title>
       <image:caption>Un velours épais qui apporte chaleur et élégance à votre espace.</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://bargaoui-rideauxtahar.netlify.app/products/2</loc>
-    <lastmod>2024-06-01</lastmod>
+    <lastmod>2025-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1464198016405-33fd4527b89d?q=80&w=2574&auto=format&fit=crop</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1464198016405-33fd4527b89d?q=80&amp;w=2574&amp;auto=format&amp;fit=crop</image:loc>
       <image:title>Soie Lumineuse</image:title>
       <image:caption>Rideau en soie pure avec des reflets lumineux qui subliment la lumière naturelle.</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://bargaoui-rideauxtahar.netlify.app/products/3</loc>
-    <lastmod>2024-06-01</lastmod>
+    <lastmod>2025-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1549187774-b4e9b0445b41?q=80&w=2574&auto=format&fit=crop</image:loc>
+      <image:loc>https://images.unsplash.com/photo-1549187774-b4e9b0445b41?q=80&amp;w=2574&amp;auto=format&amp;fit=crop</image:loc>
       <image:title>Lin Contemporain</image:title>
       <image:caption>Un lin de qualité supérieure pour un style contemporain et intemporel.</image:caption>
     </image:image>
