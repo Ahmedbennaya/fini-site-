@@ -1,10 +1,10 @@
-
 import { useEffect } from 'react';
 import Hero from '@/components/Hero';
 import ProductShowcase from '@/components/ProductShowcase';
 import TestimonialSlider from '@/components/TestimonialSlider';
 import { ArrowRight, Check, ShieldCheck, Star, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '@/components/SEO'; // Importing the SEO component
 
 const Index = () => {
   useEffect(() => {
@@ -31,8 +31,102 @@ const Index = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Business schema for structured data
+  const businessSchema = {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Bargaoui Rideaux Tahar",
+    "description": "Créateur de rideaux et textiles d'ameublement de luxe sur mesure depuis 1998. Qualité, élégance et savoir-faire artisanal tunisien.",
+    "image": "https://bargaoui-rideauxtahar.netlify.app/LOGO_NOIR.png",
+    "url": "https://bargaoui-rideauxtahar.netlify.app/",
+    "telephone": "+216 50 92 92 92",
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "V6CM+H46, 143 Avenue UMA 2036 Ariana, Tunis",
+        "addressLocality": "Ariana",
+        "postalCode": "2036",
+        "telephone": "90251525"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "2 Av. Hédi Nouira, Ariana 2037",
+        "addressLocality": "Ariana",
+        "postalCode": "2037",
+        "telephone": "20204425"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "Av des Martyres, 100m après le terminus du métro, à côté Banque Bh, Mourouj 5 Ben Arousse",
+        "addressLocality": "Ben Arousse",
+        "postalCode": "2074",
+        "telephone": "55784848"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "Comptoire Sfaxien, Route G1 Face",
+        "addressLocality": "2034",
+        "telephone": "94193192"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "Entrée de Bizerte, Juste Avant le pont, Zarzouna Bizerte",
+        "addressLocality": "Bizerte",
+        "postalCode": "7021",
+        "telephone": "23300670"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "Avenue Abou Dhabi el Mrezga Hammamet",
+        "addressLocality": "Hammamet",
+        "postalCode": "8050",
+        "telephone": "22336622"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "WG2W+XMC, Route Gp1 Face Mall of Sousse",
+        "addressLocality": "Akouda",
+        "postalCode": "4000",
+        "telephone": "90251515"
+      }
+    ],
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 36.8065,
+      "longitude": 10.1815
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday"],
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/Bargaoui.Rideaux.Tahar",
+      "https://www.instagram.com/bargaoui_rideaux_tahar"
+    ],
+    "priceRange": "TND",
+    "areaServed": "Tunisie"
+  };
+
   return (
     <main>
+      <SEO
+        title="Bargaoui Rideaux Tahar - Créateur de Rideaux de Luxe en Tunisie depuis 1998"
+        description="Bargaoui Rideaux Tahar, votre spécialiste des rideaux et textiles d'ameublement de luxe sur mesure depuis 1998. Qualité exceptionnelle, élégance et savoir-faire artisanal tunisien."
+        keywords="Bargaoui Rideaux, Bargaoui Rideaux Tahar, BargaouiRideaux, rideaux de luxe, textiles d'ameublement, rideaux sur mesure, voilage, décoration intérieure, Tunisie, rideaux Tunisie, ameublement Tunisie"
+        canonicalUrl="/"
+        schemaData={businessSchema}
+      />
+
       <Hero />
       
       {/* Features section */}
@@ -132,18 +226,14 @@ const Index = () => {
             </div>
             
             <div className="order-1 lg:order-2 relative">
-  <div className="relative z-10 slide-up ">
-   
-  </div>
-  <div className="relative z-10 slide-up">
-    <img 
-      src="https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=2127&auto=format&fit=crop" 
-      alt="Détail d'un tissu"
-      className="rounded-sm border-8 border-white shadow-xl"
-    />
-  </div>
-</div>
-
+              <div className="relative z-10 slide-up">
+                <img 
+                  src="https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=2127&auto=format&fit=crop" 
+                  alt="Détail d'un tissu"
+                  className="rounded-sm border-8 border-white shadow-xl"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

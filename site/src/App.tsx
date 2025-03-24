@@ -1,3 +1,4 @@
+import { HelmetProvider } from "react-helmet-async"; // Import HelmetProvider
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -100,45 +101,47 @@ const App = () => (
     <AuthProvider>
       <CartProvider>
         <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-            <LanguageHandler />
-            <meta
-              name="google-site-verification"
-              content="cCV_UCZDUYDHybn45Ucq3IbWbIRLvXTG00WQIs-AUMY"
-            />
-            <NavbarTranslated />
-            <Routes>
-              {/* Public routes */}
-              <Route path="/" element={<Index />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/products/:id" element={<ProductDetails />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/forgot-password" element={<ForgotPassword />} />
-              <Route path="/reset-password" element={<ResetPassword />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/materials/:material" element={<MaterialDetails />} />
-              {/* Protected routes */}
-              <Route path="/account/*" element={<ProtectedRoute element={<Account />} />} />
-              <Route path="/checkout" element={<ProtectedRoute element={<Checkout />} />} />
-              <Route path="/order-success" element={<ProtectedRoute element={<OrderSuccess />} />} />
-              
-              {/* Admin routes */}
-              <Route path="/admin" element={<ProtectedRoute element={<Dashboard />} requireAdmin={true} />} />
-              <Route path="/admin/products/*" element={<ProtectedRoute element={<AdminProducts />} requireAdmin={true} />} />
-              <Route path="/admin/orders" element={<ProtectedRoute element={<AdminOrders />} requireAdmin={true} />} />
-              <Route path="/admin/customers" element={<ProtectedRoute element={<AdminCustomers />} requireAdmin={true} />} />
-              <Route path="/admin/categories" element={<ProtectedRoute element={<AdminCategories />} requireAdmin={true} />} />
-              
-              {/* Catch-all route */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-            <Footer />
-          </BrowserRouter>
+          <HelmetProvider> {/* Wrap the app with HelmetProvider */}
+            <Toaster />
+            <Sonner />
+            <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+              <LanguageHandler />
+              <meta
+                name="google-site-verification"
+                content="cCV_UCZDUYDHybn45Ucq3IbWbIRLvXTG00WQIs-AUMY"
+              />
+              <NavbarTranslated />
+              <Routes>
+                {/* Public routes */}
+                <Route path="/" element={<Index />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/products/:id" element={<ProductDetails />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/reset-password" element={<ResetPassword />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/materials/:material" element={<MaterialDetails />} />
+                {/* Protected routes */}
+                <Route path="/account/*" element={<ProtectedRoute element={<Account />} />} />
+                <Route path="/checkout" element={<ProtectedRoute element={<Checkout />} />} />
+                <Route path="/order-success" element={<ProtectedRoute element={<OrderSuccess />} />} />
+                
+                {/* Admin routes */}
+                <Route path="/admin" element={<ProtectedRoute element={<Dashboard />} requireAdmin={true} />} />
+                <Route path="/admin/products/*" element={<ProtectedRoute element={<AdminProducts />} requireAdmin={true} />} />
+                <Route path="/admin/orders" element={<ProtectedRoute element={<AdminOrders />} requireAdmin={true} />} />
+                <Route path="/admin/customers" element={<ProtectedRoute element={<AdminCustomers />} requireAdmin={true} />} />
+                <Route path="/admin/categories" element={<ProtectedRoute element={<AdminCategories />} requireAdmin={true} />} />
+                
+                {/* Catch-all route */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+              <Footer />
+            </BrowserRouter>
+          </HelmetProvider>
         </TooltipProvider>
       </CartProvider>
     </AuthProvider>

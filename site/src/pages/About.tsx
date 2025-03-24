@@ -1,5 +1,5 @@
-
 import { useEffect } from 'react';
+import SEO from '@/components/SEO'; // Import the SEO component
 import { ArrowRight, Award, Users, History, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ const About = () => {
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
-    
+
     // Observer for animations
     const observer = new IntersectionObserver(
       (entries) => {
@@ -57,8 +57,43 @@ const About = () => {
     }
   ];
 
+  // Schema for the About page
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Bargaoui Rideaux Tahar",
+      "description": "Créateur de rideaux et textiles d'ameublement de luxe sur mesure depuis 1998. Qualité, élégance et savoir-faire artisanal tunisien.",
+      "image": "https://bargaoui-rideauxtahar.netlify.app/LOGO_NOIR.png",
+      "url": "https://bargaoui-rideauxtahar.netlify.app/about",
+      "foundingDate": "1998",
+      "founder": {
+        "@type": "Person",
+        "name": "Tahar Bargaoui"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avenue Habib Bourguiba",
+        "addressLocality": "Tunis",
+        "addressRegion": "Tunis",
+        "postalCode": "1000",
+        "addressCountry": "TN"
+      }
+    }
+  };
+
   return (
-    <main className="pt-24">
+    <main>
+      {/* SEO Component */}
+      <SEO
+        title="À Propos de Bargaoui Rideaux Tahar | Notre Histoire et Valeurs"
+        description="Découvrez l'histoire de Bargaoui Rideaux Tahar, créateur tunisien de rideaux de luxe depuis 1998. Notre passion, nos valeurs et notre savoir-faire artisanal au service de votre intérieur."
+        keywords="Bargaoui Rideaux, histoire, savoir-faire, rideaux sur mesure, artisanat tunisien, textile de luxe, Tunisie"
+        canonicalUrl="/about"
+        schemaData={aboutSchema}
+      />
+
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center">
         <div className="absolute inset-0 z-0">

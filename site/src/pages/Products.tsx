@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { CheckCircle2, ChevronRight, Filter, X, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import SEO from '@/components/SEO'; // Importing the SEO component
 
 // Mock product categories
 const categories = [
@@ -124,6 +125,32 @@ const Products = () => {
     return categoryMatch && materialMatch && searchMatch;
   });
 
+  // Dynamic SEO title, description, and image based on search query
+  const seoTitle = searchQuery
+    ? `${searchQuery} | Bargaoui Rideaux Tahar`
+    : 'Produits | Bargaoui Rideaux Tahar';
+  const seoDescription = searchQuery
+    ? `Découvrez les produits correspondant à "${searchQuery}" dans notre collection de rideaux de luxe, voilages, et textiles d'ameublement.`
+    : "Découvrez notre collection de rideaux de luxe, voilages, et textiles d'ameublement sur mesure. Qualité exceptionnelle et savoir-faire artisanal tunisien.";
+  const seoImage =
+    filteredProducts.length > 0
+      ? filteredProducts[0].image
+      : 'https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=2574&auto=format&fit=crop';
+
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Produits | Bargaoui Rideaux Tahar",
+    "description": seoDescription,
+    "itemListElement": filteredProducts.map((product, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": product.name,
+      "image": product.image,
+      "url": `/products/${product.id}`,
+    })),
+  };
+
   console.log('Selected Category:', selectedCategory);
   console.log('Selected Material:', selectedMaterial);
   console.log('Search Query:', searchQuery);
@@ -131,6 +158,15 @@ const Products = () => {
 
   return (
     <main className="pt-24">
+      <SEO
+        title={seoTitle}
+        description={seoDescription}
+        keywords="rideaux de luxe, voilages, textiles d'ameublement, Bargaoui Rideaux, Tunisie"
+        canonicalUrl="/products"
+        imageUrl={seoImage}
+        schemaData={schemaData}
+      />
+
       {/* Hero Section */}
       <section className="relative h-[40vh] flex items-center">
         <div className="absolute inset-0 z-0">

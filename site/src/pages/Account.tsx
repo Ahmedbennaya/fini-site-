@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -7,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useAuth } from '@/context/AuthContext';
 import { useTranslation } from 'react-i18next';
 import { User, Package, CreditCard, MapPin, LogOut } from 'lucide-react';
+import SEO from '@/components/SEO'; // Import the SEO component
 
 const AccountProfile = () => {
   // Component implementation
@@ -76,6 +76,14 @@ const Account = () => {
 
   return (
     <div className="container mx-auto py-10">
+      {/* SEO Component */}
+      <SEO
+        title="Mon Compte | Bargaoui Rideaux Tahar"
+        description="Gérez votre compte client Bargaoui Rideaux Tahar, consultez vos commandes, modifiez vos informations personnelles et accédez à votre historique."
+        keywords="compte client, Bargaoui Rideaux, historique commandes, profil client"
+        canonicalUrl="/account"
+      />
+
       <h1 className="text-3xl font-bold mb-6">{t('myAccount')}</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">

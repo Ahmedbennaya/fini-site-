@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -7,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/components/ui/use-toast';
 import { supabase } from '@/lib/supabase';
 import { useTranslation } from 'react-i18next';
+import SEO from '@/components/SEO';
 
 const ForgotPassword = () => {
   const { t } = useTranslation();
@@ -43,54 +43,63 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="container mx-auto max-w-md py-12">
-      <Card>
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold">{t('forgotPassword')}</CardTitle>
-          <CardDescription>
-            {submitted 
-              ? t('checkEmailForResetLink')
-              : t('enterEmailToResetPassword')
-            }
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          {!submitted ? (
-            <form onSubmit={handleResetPassword} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="email">{t('email')}</Label>
-                <Input 
-                  id="email" 
-                  type="email" 
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="email@example.com" 
-                  required
-                />
+    <main>
+      <SEO 
+        title="Mot de Passe Oublié | Bargaoui Rideaux Tahar"
+        description="Réinitialisez votre mot de passe pour accéder à votre compte client Bargaoui Rideaux Tahar."
+        keywords="mot de passe oublié, réinitialisation mot de passe, compte client Bargaoui Rideaux"
+        canonicalUrl="/forgot-password"
+      />
+      
+      <div className="container mx-auto max-w-md py-12">
+        <Card>
+          <CardHeader className="space-y-1">
+            <CardTitle className="text-2xl font-bold">{t('forgotPassword')}</CardTitle>
+            <CardDescription>
+              {submitted 
+                ? t('checkEmailForResetLink')
+                : t('enterEmailToResetPassword')
+              }
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            {!submitted ? (
+              <form onSubmit={handleResetPassword} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="email">{t('email')}</Label>
+                  <Input 
+                    id="email" 
+                    type="email" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="email@example.com" 
+                    required
+                  />
+                </div>
+                <Button 
+                  type="submit" 
+                  className="w-full" 
+                  disabled={loading}
+                >
+                  {loading ? t('sending') : t('sendResetLink')}
+                </Button>
+              </form>
+            ) : (
+              <div className="text-center">
+                <p className="text-sm text-gray-500 mt-2">{t('resetLinkSentTo')}: {email}</p>
+                <Button 
+                  className="mt-4"
+                  variant="outline" 
+                  onClick={() => setSubmitted(false)}
+                >
+                  {t('sendAnotherLink')}
+                </Button>
               </div>
-              <Button 
-                type="submit" 
-                className="w-full" 
-                disabled={loading}
-              >
-                {loading ? t('sending') : t('sendResetLink')}
-              </Button>
-            </form>
-          ) : (
-            <div className="text-center">
-              <p className="text-sm text-gray-500 mt-2">{t('resetLinkSentTo')}: {email}</p>
-              <Button 
-                className="mt-4"
-                variant="outline" 
-                onClick={() => setSubmitted(false)}
-              >
-                {t('sendAnotherLink')}
-              </Button>
-            </div>
-          )}
-        </CardContent>
-      </Card>
-    </div>
+            )}
+          </CardContent>
+        </Card>
+      </div>
+    </main>
   );
 };
 
