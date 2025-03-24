@@ -1,11 +1,9 @@
-
 # Bargaoui Rideaux Tahar - Instructions for search engines
 
 User-agent: *
 Allow: /
 
 # Primary pages - high importance
-Allow: /
 Allow: /about
 Allow: /products
 Allow: /contact

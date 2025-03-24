@@ -48,6 +48,7 @@
     "embla-carousel-react": "^8.3.0",
     "framer-motion": "^12.5.0",
     "gatsby-remark-images-contentful": "^6.14.0",
+    "generate-robotstxt": "^8.0.3",
     "i18next": "^23.7.19",
     "i18next-browser-languagedetector": "^7.2.0",
     "input-otp": "^1.2.4",
