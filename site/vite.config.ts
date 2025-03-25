@@ -22,5 +22,12 @@ export default defineConfig(({ mode }) => ({
     outDir: 'site/dist', // Specify the output directory as 'site/dist'
     sourcemap: mode === 'development', // Optionally include sourcemaps in development
     // Additional build settings can go here (e.g., minification, chunk splitting)
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'], // Split vendor libraries into a separate chunk
+        },
+      },
+    },
   },
 }));
