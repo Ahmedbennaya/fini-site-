@@ -28,8 +28,8 @@ const Hero = () => {
           className="absolute inset-0 bg-gradient-to-b from-luxury-950/50 to-luxury-900/80 mix-blend-multiply z-10"
           aria-hidden="true"
         ></div>
-        <video
-          src="https://res.cloudinary.com/dc1zy9h63/video/upload/v1727056844/login_ckvyiy.mp4"
+       <video
+          src="/Tahar vedio.mp4" // Updated to use the Tahar video from the public folder
           className="object-cover object-center w-full h-full"
           autoPlay
           loop
