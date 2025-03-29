@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    outDir: 'site/dist', // Specify the output directory as 'site/dist'
+    outDir: 'dist', // Specify the output directory as 'site/dist'
     sourcemap: mode === 'development', // Optionally include sourcemaps in development
     // Additional build settings can go here (e.g., minification, chunk splitting)
     rollupOptions: {
