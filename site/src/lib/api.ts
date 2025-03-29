@@ -10,7 +10,7 @@ export async function getProducts(options?: {
   limit?: number
 }) {
   try {
-    let query = supabase.from('products').select('*');
+    let query = supabase.from('products').select('*').eq('is_active', true); // Apply is_active filter here
     
     if (options?.featured) {
       query = query.eq('is_featured', true);
@@ -24,16 +24,18 @@ export async function getProducts(options?: {
       query = query.limit(options.limit);
     }
     
-    const { data, error } = await query.eq('is_active', true);
+    const { data, error } = await query;
     
     if (error) {
       console.error('Error fetching products:', error);
+      toast({ title: 'Error fetching products', description: error.message, variant: 'destructive' });
       throw error;
     }
     
     return data || [];
   } catch (error) {
     console.error('Error in getProducts:', error);
+    toast({ title: 'Error', description: 'Failed to fetch products.', variant: 'destructive' });
     return [];
   }
 }
@@ -48,12 +50,14 @@ export async function getProductById(id: string) {
       
     if (error) {
       console.error('Error fetching product:', error);
+      toast({ title: 'Error fetching product', description: error.message, variant: 'destructive' });
       throw error;
     }
     
     return data;
   } catch (error) {
     console.error('Error in getProductById:', error);
+    toast({ title: 'Error', description: 'Failed to fetch product.', variant: 'destructive' });
     throw error;
   }
 }
@@ -67,6 +71,7 @@ export async function createProduct(product: TablesInsert['products']) {
     
   if (error) {
     console.error('Error creating product:', error);
+    toast({ title: 'Error creating product', description: error.message, variant: 'destructive' });
     throw error;
   }
   
@@ -83,6 +88,7 @@ export async function updateProduct(id: string, updates: Partial<TablesInsert['p
     
   if (error) {
     console.error('Error updating product:', error);
+    toast({ title: 'Error updating product', description: error.message, variant: 'destructive' });
     throw error;
   }
   
@@ -97,6 +103,7 @@ export async function deleteProduct(id: string) {
     
   if (error) {
     console.error('Error deleting product:', error);
+    toast({ title: 'Error deleting product', description: error.message, variant: 'destructive' });
     throw error;
   }
   
@@ -113,12 +120,14 @@ export async function getCategories() {
       
     if (error) {
       console.error('Error fetching categories:', error);
+      toast({ title: 'Error fetching categories', description: error.message, variant: 'destructive' });
       throw error;
     }
     
     return data || [];
   } catch (error) {
     console.error('Error in getCategories:', error);
+    toast({ title: 'Error', description: 'Failed to fetch categories.', variant: 'destructive' });
     return [];
   }
 }
@@ -133,12 +142,14 @@ export async function getCategoryBySlug(slug: string) {
       
     if (error) {
       console.error('Error fetching category:', error);
+      toast({ title: 'Error fetching category', description: error.message, variant: 'destructive' });
       throw error;
     }
     
     return data;
   } catch (error) {
     console.error('Error in getCategoryBySlug:', error);
+    toast({ title: 'Error', description: 'Failed to fetch category.', variant: 'destructive' });
     throw error;
   }
 }
@@ -146,7 +157,6 @@ export async function getCategoryBySlug(slug: string) {
 // =========== ORDERS API ===========
 
 export async function createOrder(order: TablesInsert['orders'], orderItems: Omit<TablesInsert['order_items'], 'order_id'>[]) {
-  // Start a transaction by using a callback
   const { data: newOrder, error: orderError } = await supabase
     .from('orders')
     .insert(order)
@@ -155,10 +165,10 @@ export async function createOrder(order: TablesInsert['orders'], orderItems: Omi
     
   if (orderError) {
     console.error('Error creating order:', orderError);
+    toast({ title: 'Error creating order', description: orderError.message, variant: 'destructive' });
     throw orderError;
   }
   
-  // Add order items
   const items = orderItems.map(item => ({
     ...item,
     order_id: newOrder.id
@@ -170,6 +180,7 @@ export async function createOrder(order: TablesInsert['orders'], orderItems: Omi
     
   if (itemsError) {
     console.error('Error adding order items:', itemsError);
+    toast({ title: 'Error adding order items', description: itemsError.message, variant: 'destructive' });
     throw itemsError;
   }
   
@@ -191,6 +202,7 @@ export async function getUserOrders(userId: string) {
     
   if (error) {
     console.error('Error fetching user orders:', error);
+    toast({ title: 'Error fetching user orders', description: error.message, variant: 'destructive' });
     throw error;
   }
   
@@ -212,6 +224,7 @@ export async function getOrderById(orderId: string) {
     
   if (error) {
     console.error('Error fetching order:', error);
+    toast({ title: 'Error fetching order', description: error.message, variant: 'destructive' });
     throw error;
   }
   
@@ -229,6 +242,7 @@ export async function getUserAddresses(userId: string) {
     
   if (error) {
     console.error('Error fetching user addresses:', error);
+    toast({ title: 'Error fetching user addresses', description: error.message, variant: 'destructive' });
     throw error;
   }
   
@@ -236,7 +250,6 @@ export async function getUserAddresses(userId: string) {
 }
 
 export async function addUserAddress(address: TablesInsert['addresses']) {
-  // If this is the default address, unset any existing default
   if (address.is_default) {
     await supabase
       .from('addresses')
@@ -253,6 +266,7 @@ export async function addUserAddress(address: TablesInsert['addresses']) {
     
   if (error) {
     console.error('Error adding address:', error);
+    toast({ title: 'Error adding address', description: error.message, variant: 'destructive' });
     throw error;
   }
   
@@ -271,12 +285,14 @@ export async function getUserProfile(userId: string) {
       
     if (error) {
       console.error('Error fetching user profile:', error);
+      toast({ title: 'Error fetching user profile', description: error.message, variant: 'destructive' });
       throw error;
     }
     
     return data;
   } catch (error) {
     console.error('Error in getUserProfile:', error);
+    toast({ title: 'Error', description: 'Failed to fetch user profile.', variant: 'destructive' });
     throw error;
   }
 }
@@ -292,12 +308,14 @@ export async function updateUserProfile(userId: string, updates: Partial<TablesI
       
     if (error) {
       console.error('Error updating user profile:', error);
+      toast({ title: 'Error updating user profile', description: error.message, variant: 'destructive' });
       throw error;
     }
     
     return data;
   } catch (error) {
     console.error('Error in updateUserProfile:', error);
+    toast({ title: 'Error', description: 'Failed to update user profile.', variant: 'destructive' });
     throw error;
   }
 }

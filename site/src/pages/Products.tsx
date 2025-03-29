@@ -10,7 +10,10 @@ const categories = [
   { id: 'premium', name: 'categories.premium' },
   { id: 'classic', name: 'categories.classic' },
   { id: 'voilages', name: 'categories.voilages' },
-  { id: 'textiles', name: 'categories.textiles' }
+  { id: 'textiles', name: 'categories.textiles' },
+  { id: 'tringles-rideaux', name: 'categories.tringles-rideaux' }, // New category
+  { id: 'embrasses-rideaux', name: 'categories.embrasses-rideaux' }, // New category
+  { id: 'accessoires-rideaux', name: 'categories.accessoires-rideaux' } // New category
 ];
 
 // Mock materials
@@ -20,7 +23,10 @@ const materials = [
   { id: 'soie', name: 'materials.soie' },
   { id: 'lin', name: 'materials.lin' },
   { id: 'coton', name: 'materials.coton' },
-  { id: 'synthetique', name: 'materials.synthetique' }
+  { id: 'synthetique', name: 'materials.synthetique' },
+  { id: 'tringles-rideaux', name: 'materials.tringles-rideaux' }, // New material
+  { id: 'embrasses-rideaux', name: 'materials.embrasses-rideaux' }, // New material
+  { id: 'accessoires-rideaux', name: 'materials.accessoires-rideaux' } // New material
 ];
 
 // Mock product data
@@ -30,7 +36,7 @@ const products = [
     name: 'Velours Royal',
     description: 'Un velours épais qui apporte chaleur et élégance à votre espace.',
     price: '150 DT / m', // Updated price
-    image: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=2574&auto=format&fit=crop',
+    image: 'https://www.247curtains.co.uk/media/catalog/product/m/t/mtm_curtain_cyrus_crushed_velvet_royal_blue_cutout_pdp_1.jpg',
     category: 'premium',
     material: 'velours'
   },
@@ -39,7 +45,7 @@ const products = [
     name: 'Soie Lumineuse',
     description: 'Rideau en soie pure avec des reflets lumineux qui subliment la lumière naturelle.',
     price: '450 DT / m²', // Updated price
-    image: 'https://images.unsplash.com/photo-1464198016405-33fd4527b89d?q=80&w=2574&auto=format&fit=crop',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ1URjns2D0rYBqD1b_Anf0piSnkXlC4gjCdBuxPFGgtenR5U7j_Y4Cf0m0M1aoLTb1PU&usqp=CAU',
     category: 'premium',
     material: 'soie'
   },
@@ -48,7 +54,7 @@ const products = [
     name: 'Lin Contemporain',
     description: 'Un lin de qualité supérieure pour un style contemporain et intemporel.',
     price: '270 DT / m', // Updated price
-    image: 'https://images.unsplash.com/photo-1549187774-b4e9b0445b41?q=80&w=2574&auto=format&fit=crop',
+    image: 'https://i.etsystatic.com/11003179/r/il/8189ae/6109438072/il_340x270.6109438072_pvh7.jpg',
     category: 'classic',
     material: 'lin'
   },
@@ -57,7 +63,7 @@ const products = [
     name: 'Voilage Élégance',
     description: 'Voilage délicat qui filtre la lumière tout en préservant votre intimité.',
     price: '225 DT / m', // Updated price
-    image: 'https://images.unsplash.com/photo-1556912998-c57cc6b63cd7?q=80&w=2531&auto=format&fit=crop',
+    image: 'https://www.bouchara.com/media/catalog/product/0/9/09009652_2010_2_3.jpg?quality=100&bg-color=255,255,255&fit=bounds&height=655&width=475&canvas=475:655',
     category: 'voilages',
     material: 'synthetique'
   },
@@ -66,7 +72,7 @@ const products = [
     name: 'Coton Naturel',
     description: 'Rideau en coton naturel, idéal pour un style épuré et écologique.',
     price: '255 DT / m', // Updated price
-    image: 'https://images.unsplash.com/photo-1540638349517-3abd5afc5847?q=80&w=2574&auto=format&fit=crop',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavzkeyoIuwWRoAlgbDzV1ExCLXlW2nkiA6Qxp-E_QYX_3_x6lH_c7Scmio6epP7d_NbE&usqp=CAU',
     category: 'classic',
     material: 'coton'
   },
@@ -75,10 +81,37 @@ const products = [
     name: 'Textile Jacquard',
     description: 'Textile d\'ameublement avec motifs jacquard pour un intérieur sophistiqué.',
     price: '390 DT / m', // Updated price
-    image: 'https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?q=80&w=2670&auto=format&fit=crop',
-    category: 'textiles',
-    material: 'coton'
+    image: 'https://sino-silk.com/wp-content/uploads/2024/01/what-is-jacquard-fabric-1.jpeg',
+    category: 'Jacquard',
+    material: 'Jacquard'
+  },{
+    id: 7,
+    name: 'Tringle Élégante',
+    description: 'Tringle en métal robuste pour un support élégant et durable.',
+    price: '390 DT / m', 
+    image: 'https://www.cdiscount.com/pdt2/0/4/0/4/700x700/dou1725321076040/rw/douceur-d-interieur-kit-de-tringle-a-rideaux-ext.jpg',
+    category: 'tringles-rideaux',
+    material: 'tringles-rideaux'
+  },
+  {
+    id: 8,
+    name: 'Embrasse Classique',
+    description: 'Embrasse en tissu raffiné pour une touche élégante à vos rideaux.',
+    price: '390 DT / m', 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfGd8B_ybeSVI5WO2SlO1Cse7crN-9V91inVDFIaFvng6cGu9LzmP6hRxrrKtiz4e_N1A&usqp=CAU',
+    category: 'embrasses-rideaux',
+    material: 'embrasses-rideaux'
+  },
+  {
+    id: 9,
+    name: 'accessoires-rideaux',
+    description: 'Anneaux en plastique résistant pour un accrochage facile et discret.',
+    price: '390 DT / m', 
+    image: 'https://ae01.alicdn.com/kf/H5e046594f1414527888f8092898cdbd0t.jpg',
+    category: 'accessoires-rideaux',
+    material: 'accessoires-rideaux'
   }
+  
 ];
 
 const Products = () => {

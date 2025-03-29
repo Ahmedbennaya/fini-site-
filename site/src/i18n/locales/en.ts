@@ -81,13 +81,15 @@ export default {
     "relatedProducts": "Related Products"
   },
   // Categories
-  "categories": {
-    "all": "All collections",
-    "premium": "Premium Collection",
-    "classic": "Classic Collection",
-    "voilages": "Sheer Curtains",
-    "textiles": "Upholstery Textiles"
-  },
+
+    "categories": {
+      "all": "All",
+      "premium": "Premium",
+      "classic": "Classic",
+      "accessoires-rideaux": "Accessoires de Rideaux",
+      "embrasses-rideaux": "Embrasses Rideaux",
+      "tringles-rideaux": "Tringles Rideaux"
+    },
   // Materials
   "materials": {
     "all": "All materials",
