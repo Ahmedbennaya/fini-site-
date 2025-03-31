@@ -4,6 +4,7 @@ User-agent: *
 Allow: /
 
 # Primary pages - high importance
+Allow: /
 Allow: /about
 Allow: /products
 Allow: /contact
