@@ -1,4 +1,4 @@
-import { HelmetProvider } from "react-helmet-async"; // Import HelmetProvider
+import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,61 +8,56 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { AuthProvider, useAuth } from "@/context/AuthContext";
 import { CartProvider } from "@/context/CartContext";
-
-// i18n
-import './i18n';
-
-// Pages
-import Index from "./pages/Index";
-import About from "./pages/About";
-import Products from "./pages/Products";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import ForgotPassword from "./pages/ForgotPassword";
-import ResetPassword from "./pages/ResetPassword";
-import Account from "./pages/Account";
-import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
-import OrderSuccess from "./pages/OrderSuccess";
-import ProductDetails from "./pages/ProductDetails";
-import Dashboard from "./pages/admin/Dashboard";
-import AdminProducts from "./pages/admin/Products";
-import AdminOrders from "./pages/admin/Orders";
-import AdminCustomers from "./pages/admin/Customers";
-import AdminCategories from "./pages/admin/Categories";
-import MaterialDetails from '@/pages/MaterialDetails';
-
-// Components
 import NavbarTranslated from "./components/NavbarTranslated";
 import Footer from "./components/Footer";
-import { Head } from "react-day-picker";
+import './i18n';
+// Lazy-loaded pages
+import React, { lazy, Suspense } from "react";
+
+const Index = lazy(() => import("./pages/Index"));
+const About = lazy(() => import("./pages/About"));
+const Products = lazy(() => import("./pages/Products"));
+const Contact = lazy(() => import("./pages/Contact"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Login = lazy(() => import("./pages/Login"));
+const Signup = lazy(() => import("./pages/Signup"));
+const ForgotPassword = lazy(() => import("./pages/ForgotPassword"));
+const ResetPassword = lazy(() => import("./pages/ResetPassword"));
+const Account = lazy(() => import("./pages/Account"));
+const Cart = lazy(() => import("./pages/Cart"));
+const Checkout = lazy(() => import("./pages/Checkout"));
+const OrderSuccess = lazy(() => import("./pages/OrderSuccess"));
+const ProductDetails = lazy(() => import("./pages/ProductDetails"));
+const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
+const AdminProducts = lazy(() => import("./pages/admin/Products"));
+const AdminOrders = lazy(() => import("./pages/admin/Orders"));
+const AdminCustomers = lazy(() => import("./pages/admin/Customers"));
+const AdminCategories = lazy(() => import("./pages/admin/Categories"));
+const MaterialDetails = lazy(() => import("./pages/MaterialDetails"));
 
 const queryClient = new QueryClient();
 
-// Protected route component
-const ProtectedRoute = ({ 
-  element, 
-  requireAdmin = false 
-}: { 
-  element: JSX.Element, 
-  requireAdmin?: boolean 
+const ProtectedRoute = ({
+  element,
+  requireAdmin = false,
+}: {
+  element: JSX.Element;
+  requireAdmin?: boolean;
 }) => {
   const { user, isLoading, isAdmin } = useAuth();
-  
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  
+
   if (!user) {
     return <Navigate to="/login" />;
   }
-  
+
   if (requireAdmin && !isAdmin) {
     return <Navigate to="/" />;
   }
-  
+
   return element;
 };
 
@@ -70,26 +65,26 @@ const LanguageHandler = () => {
   const { i18n } = useTranslation();
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('preferredLanguage');
-    const browserLanguage = navigator.language.split('-')[0];
-    const supportedLanguages = ['fr', 'en', 'ar'];
-    
-    let detectedLanguage = 'fr';
-    
-    if (savedLanguage && supportedLanguages.includes(savedLanguage)) {
-      detectedLanguage = savedLanguage;
-    } else if (supportedLanguages.includes(browserLanguage)) {
-      detectedLanguage = browserLanguage;
-    }
-    
+    const savedLanguage = localStorage.getItem("preferredLanguage");
+    const browserLanguage = navigator.language.split("-")[0];
+    const supportedLanguages = ["fr", "en", "ar"];
+
+    const detectedLanguage =
+      savedLanguage && supportedLanguages.includes(savedLanguage)
+        ? savedLanguage
+        : supportedLanguages.includes(browserLanguage)
+        ? browserLanguage
+        : "fr";
+
     i18n.changeLanguage(detectedLanguage);
-    
-    if (detectedLanguage === 'ar') {
-      document.getElementById('navbar-container')?.setAttribute('dir', 'rtl');
-      document.getElementById('navbar-container')?.classList.add('rtl');
+
+    const navbar = document.getElementById("navbar-container");
+    if (detectedLanguage === "ar") {
+      navbar?.setAttribute("dir", "rtl");
+      navbar?.classList.add("rtl");
     } else {
-      document.getElementById('navbar-container')?.setAttribute('dir', 'ltr');
-      document.getElementById('navbar-container')?.classList.remove('rtl');
+      navbar?.setAttribute("dir", "ltr");
+      navbar?.classList.remove("rtl");
     }
   }, [i18n]);
 
@@ -101,44 +96,74 @@ const App = () => (
     <AuthProvider>
       <CartProvider>
         <TooltipProvider>
-          <HelmetProvider> {/* Wrap the app with HelmetProvider */}
+          <HelmetProvider>
             <Toaster />
             <Sonner />
-            <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+            <BrowserRouter>
               <LanguageHandler />
-              <meta
-                name="google-site-verification"
-                content="cCV_UCZDUYDHybn45Ucq3IbWbIRLvXTG00WQIs-AUMY"
-              />
               <NavbarTranslated />
-              <Routes>
-                {/* Public routes */}
-                <Route path="/" element={<Index />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/products/:id" element={<ProductDetails />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/forgot-password" element={<ForgotPassword />} />
-                <Route path="/reset-password" element={<ResetPassword />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/materials/:material" element={<MaterialDetails />} />
-                {/* Protected routes */}
-                <Route path="/account/*" element={<ProtectedRoute element={<Account />} />} />
-                <Route path="/checkout" element={<ProtectedRoute element={<Checkout />} />} />
-                <Route path="/order-success" element={<ProtectedRoute element={<OrderSuccess />} />} />
-                
-                {/* Admin routes */}
-                <Route path="/admin" element={<ProtectedRoute element={<Dashboard />} requireAdmin={true} />} />
-                <Route path="/admin/products/*" element={<ProtectedRoute element={<AdminProducts />} requireAdmin={true} />} />
-                <Route path="/admin/orders" element={<ProtectedRoute element={<AdminOrders />} requireAdmin={true} />} />
-                <Route path="/admin/customers" element={<ProtectedRoute element={<AdminCustomers />} requireAdmin={true} />} />
-                <Route path="/admin/categories" element={<ProtectedRoute element={<AdminCategories />} requireAdmin={true} />} />
-                
-                {/* Catch-all route */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
+              <Suspense fallback={<div>Loading...</div>}>
+                <Routes>
+                  {/* Public routes */}
+                  <Route path="/" element={<Index />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/products" element={<Products />} />
+                  <Route path="/products/:id" element={<ProductDetails />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/signup" element={<Signup />} />
+                  <Route path="/forgot-password" element={<ForgotPassword />} />
+                  <Route path="/reset-password" element={<ResetPassword />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/materials/:material" element={<MaterialDetails />} />
+                  {/* Protected routes */}
+                  <Route
+                    path="/account/*"
+                    element={<ProtectedRoute element={<Account />} />}
+                  />
+                  <Route
+                    path="/checkout"
+                    element={<ProtectedRoute element={<Checkout />} />}
+                  />
+                  <Route
+                    path="/order-success"
+                    element={<ProtectedRoute element={<OrderSuccess />} />}
+                  />
+                  {/* Admin routes */}
+                  <Route
+                    path="/admin"
+                    element={
+                      <ProtectedRoute element={<Dashboard />} requireAdmin={true} />
+                    }
+                  />
+                  <Route
+                    path="/admin/products/*"
+                    element={
+                      <ProtectedRoute element={<AdminProducts />} requireAdmin={true} />
+                    }
+                  />
+                  <Route
+                    path="/admin/orders"
+                    element={
+                      <ProtectedRoute element={<AdminOrders />} requireAdmin={true} />
+                    }
+                  />
+                  <Route
+                    path="/admin/customers"
+                    element={
+                      <ProtectedRoute element={<AdminCustomers />} requireAdmin={true} />
+                    }
+                  />
+                  <Route
+                    path="/admin/categories"
+                    element={
+                      <ProtectedRoute element={<AdminCategories />} requireAdmin={true} />
+                    }
+                  />
+                  {/* Catch-all route */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </Suspense>
               <Footer />
             </BrowserRouter>
           </HelmetProvider>
