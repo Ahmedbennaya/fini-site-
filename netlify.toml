@@ -1,0 +1,16 @@
+# Build settings
+[build]
+  command = "npm run build" # Command to build your project
+  publish = "site/dist"     # Directory to publish after the build
+
+# Headers for sitemap.xml
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=UTF-8"
+
+# Redirects (optional, if needed)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 20 33% 98%;
+    --foreground: 20 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 10% 10%;
+
+    --primary: 35 10% 25%;
+    --primary-foreground: 35 5% 95%;
+
+    --secondary: 35 20% 95%;
+    --secondary-foreground: 35 10% 25%;
+
+    --muted: 35 10% 95%;
+    --muted-foreground: 35 10% 40%;
+
+    --accent: 35 10% 90%;
+    --accent-foreground: 35 10% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 20 10% 90%;
+    --input: 20 10% 90%;
+    --ring: 35 10% 80%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-sm;
+  }
+  
+  .section-padding {
+    @apply py-20 px-6 md:px-12 lg:px-24;
+  }
+  
+  .btn-luxury {
+    @apply px-6 py-3 bg-luxury-800 text-white rounded-none text-sm uppercase tracking-wider 
+           transition-all duration-300 hover:bg-luxury-900 hover:shadow-lg
+           focus:outline-none focus:ring-2 focus:ring-luxury-500 focus:ring-offset-2;
+  }
+  
+  .btn-luxury-outline {
+    @apply px-6 py-3 border border-luxury-800 text-luxury-800 rounded-none text-sm uppercase tracking-wider 
+           transition-all duration-300 hover:bg-luxury-100 hover:border-luxury-900
+           focus:outline-none focus:ring-2 focus:ring-luxury-500 focus:ring-offset-2;
+  }
+
+  .heading-xl {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-medium leading-tight tracking-tight;
+  }
+  
+  .heading-lg {
+    @apply font-display text-3xl md:text-4xl font-medium leading-tight;
+  }
+  
+  .heading-md {
+    @apply font-serif text-2xl md:text-3xl font-medium leading-snug;
+  }
+  
+  .heading-sm {
+    @apply font-serif text-xl md:text-2xl font-medium;
+  }
+  
+  .heading-xs {
+    @apply font-serif text-lg md:text-xl font-medium;
+  }
+  
+  .luxury-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .container-luxury {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+.slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+.fade-in.show {
+  opacity: 1;
+}
+
+/* Staggered animation delays */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+
+/* RTL Support */
+html.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Flip margins for RTL */
+html.rtl .mr-1, html.rtl .mr-2, html.rtl .mr-3, html.rtl .mr-4, html.rtl .mr-6, html.rtl .mr-8 {
+  margin-right: 0;
+}
+
+html.rtl .mr-1 { margin-left: 0.25rem; }
+html.rtl .mr-2 { margin-left: 0.5rem; }
+html.rtl .mr-3 { margin-left: 0.75rem; }
+html.rtl .mr-4 { margin-left: 1rem; }
+html.rtl .mr-6 { margin-left: 1.5rem; }
+html.rtl .mr-8 { margin-left: 2rem; }
+
+html.rtl .ml-1, html.rtl .ml-2, html.rtl .ml-3, html.rtl .ml-4, html.rtl .ml-6, html.rtl .ml-8 {
+  margin-left: 0;
+}
+
+html.rtl .ml-1 { margin-right: 0.25rem; }
+html.rtl .ml-2 { margin-right: 0.5rem; }
+html.rtl .ml-3 { margin-right: 0.75rem; }
+html.rtl .ml-4 { margin-right: 1rem; }
+html.rtl .ml-6 { margin-right: 1.5rem; }
+html.rtl .ml-8 { margin-right: 2rem; }
+
+/* Flip text alignment classes for RTL */
+html.rtl .text-left { text-align: right; }
+html.rtl .text-right { text-align: left; }
+
+/* Flip transforms for RTL */
+html.rtl .translate-x-1\/2 { --tw-translate-x: -50%; }
+html.rtl .-translate-x-1\/2 { --tw-translate-x: 50%; }
+
+/* Adjust flexbox orders for RTL */
+html.rtl .order-1 { order: 2; }
+html.rtl .order-2 { order: 1; }
+
+/* Adjust grid columns for RTL */
+@media (min-width: 768px) {
+  html.rtl .md\:grid-cols-2 > div:first-child {
+    grid-column: 2;
+  }
+  
+  html.rtl .md\:grid-cols-2 > div:last-child {
+    grid-column: 1;
+  }
+}
+
+/* Font adjustments for Arabic */
+html.rtl {
+  font-family: 'Noto Sans Arabic', sans-serif;
+}
+
+/* Adjust borders for RTL */
+html.rtl .border-r-4 {
+  border-right: 0;
+  border-left: 4px solid;
+}
