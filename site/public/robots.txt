@@ -3,30 +3,10 @@
 User-agent: *
 Allow: /
 
-# Primary pages - high importance
-Allow: /
-Allow: /about
-Allow: /products
-Allow: /contact
-
-# Product details pages
-Allow: /products/*
-
 # Protect admin area from indexing
 Disallow: /admin/
 Disallow: /admin/*
 
-# Don't index authentication pages
-Disallow: /login
-Disallow: /signup
-Disallow: /forgot-password
-Disallow: /reset-password
-
-# Don't index user-specific pages
-Disallow: /account
-Disallow: /account/*
-Disallow: /checkout
-Disallow: /order-success
 
 # Sitemap location
 Sitemap: https://bargaoui-rideauxtahar.netlify.app/sitemap.xml
