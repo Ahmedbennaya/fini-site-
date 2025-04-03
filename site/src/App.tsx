@@ -15,6 +15,7 @@ import './i18n';
 import React, { lazy, Suspense } from "react";
 
 const Index = lazy(() => import("./pages/Index"));
+const FAQPage = lazy(() => import("./pages/FAQPage"));
 const About = lazy(() => import("./pages/About"));
 const Products = lazy(() => import("./pages/Products"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -110,6 +111,8 @@ const App = () => (
                   <Route path="/products" element={<Products />} />
                   <Route path="/products/:id" element={<ProductDetails />} />
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="/faq" element={<FAQPage />} /> {/* Added FAQPage route */}
+
                   <Route path="/login" element={<Login />} />
                   <Route path="/signup" element={<Signup />} />
                   <Route path="/forgot-password" element={<ForgotPassword />} />

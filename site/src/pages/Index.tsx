@@ -1,10 +1,329 @@
 import { useEffect } from 'react';
-import Hero from '@/components/Hero';
-import ProductShowcase from '@/components/ProductShowcase';
-import TestimonialSlider from '@/components/TestimonialSlider';
-import { ArrowRight, Check, ShieldCheck, Star, Zap } from 'lucide-react';
+import { Helmet } from 'react-helmet'; // Added import for Helmet
 import { Link } from 'react-router-dom';
-import SEO from '@/components/SEO'; // Importing the SEO component
+import { ArrowRight, Check, ShieldCheck, Star, Zap, Phone, Mail, MapPin } from 'lucide-react';
+import Instagramfeed from '@/components/InstagramFeed';
+import Vero from '@/components/Hero';
+
+// Component definitions (already defined in your code):
+const Hero = () => (
+  <Vero/>
+);
+
+const ProductShowcase = () => (
+  <section className="section-padding bg-secondary">
+    <div className="container-luxury">
+      <div className="text-center max-w-2xl mx-auto mb-16">
+        <h2 className="heading-lg mb-4 slide-up">Nos Collections</h2>
+        <p className="text-luxury-600 slide-up stagger-1">
+          Découvrez notre sélection de rideaux et textiles d'ameublement de luxe, conçus pour sublimer votre intérieur.
+        </p>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Collection Premium */}
+        <div className="group relative overflow-hidden rounded-sm slide-up">
+          <div className="aspect-[4/5] overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2532&auto=format&fit=crop" 
+              alt="Collection Premium"
+              className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-luxury-950/80 via-luxury-950/20 to-transparent flex flex-col justify-end p-6">
+            <h3 className="text-white text-xl font-serif font-medium mb-2">Collection Premium</h3>
+            <p className="text-white/80 text-sm mb-4 max-w-xs">
+              Des tissus nobles et des finitions impeccables pour un intérieur d'exception.
+            </p>
+            <Link 
+              to="/products?category=premium" 
+              className="inline-flex items-center text-white font-medium text-sm"
+            >
+              <span className="border-b border-white/30 hover:border-white transition-all">Découvrir</span>
+              <ArrowRight className="ml-2" size={16} />
+            </Link>
+          </div>
+        </div>
+        
+        {/* Collection Classique */}
+        <div className="group relative overflow-hidden rounded-sm slide-up stagger-1">
+          <div className="aspect-[4/5] overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=2574&auto=format&fit=crop" 
+              alt="Collection Classique"
+              className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-luxury-950/80 via-luxury-950/20 to-transparent flex flex-col justify-end p-6">
+            <h3 className="text-white text-xl font-serif font-medium mb-2">Collection Classique</h3>
+            <p className="text-white/80 text-sm mb-4 max-w-xs">
+              L'élégance intemporelle pour tous les styles d'intérieur.
+            </p>
+            <Link 
+              to="/products?category=classic" 
+              className="inline-flex items-center text-white font-medium text-sm"
+            >
+              <span className="border-b border-white/30 hover:border-white transition-all">Découvrir</span>
+              <ArrowRight className="ml-2" size={16} />
+            </Link>
+          </div>
+        </div>
+        
+        {/* Voilages */}
+        <div className="group relative overflow-hidden rounded-sm slide-up stagger-2">
+          <div className="aspect-[4/5] overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2669&auto=format&fit=crop" 
+              alt="Voilages"
+              className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-luxury-950/80 via-luxury-950/20 to-transparent flex flex-col justify-end p-6">
+            <h3 className="text-white text-xl font-serif font-medium mb-2">Voilages</h3>
+            <p className="text-white/80 text-sm mb-4 max-w-xs">
+              Légèreté et élégance pour filtrer la lumière tout en préservant votre intimité.
+            </p>
+            <Link 
+              to="/products?category=voilages" 
+              className="inline-flex items-center text-white font-medium text-sm"
+            >
+              <span className="border-b border-white/30 hover:border-white transition-all">Découvrir</span>
+              <ArrowRight className="ml-2" size={16} />
+            </Link>
+          </div>
+        </div>
+      </div>
+      
+      <div className="text-center mt-12">
+        <Link 
+          to="/products" 
+          className="btn-luxury-outline text-luxury-800 border-luxury-800 hover:bg-luxury-50"
+        >
+          Voir toutes nos collections
+        </Link>
+      </div>
+    </div>
+  </section>
+);
+
+const TestimonialSlider = () => (
+  <section className="section-padding bg-luxury-50">
+    <div className="container-luxury">
+      <div className="text-center max-w-2xl mx-auto mb-16">
+        <h2 className="heading-lg mb-4 slide-up">Ce que disent nos clients</h2>
+        <p className="text-luxury-600 slide-up stagger-1">
+          La satisfaction de nos clients est notre priorité. Découvrez leurs témoignages.
+        </p>
+      </div>
+      
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-white p-8 md:p-12 rounded-sm shadow-sm slide-up stagger-2">
+          <div className="flex flex-col md:flex-row gap-8">
+            <div className="md:w-1/3">
+              <img 
+                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=2576&auto=format&fit=crop" 
+                alt="Sarah Mansour"
+                className="w-24 h-24 rounded-full object-cover mx-auto md:mx-0"
+              />
+            </div>
+            <div className="md:w-2/3">
+              <div className="flex mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-yellow-500 fill-yellow-500" />
+                ))}
+              </div>
+              <blockquote className="text-luxury-800 text-lg italic mb-6">
+                "J'ai fait appel à Bargaoui Rideaux pour l'aménagement de mon salon et je suis enchantée du résultat. Le conseil personnalisé, la qualité des tissus et la finition impeccable ont dépassé mes attentes."
+              </blockquote>
+              <div>
+                <p className="font-medium text-luxury-900">Sarah Mansour</p>
+                <p className="text-luxury-600 text-sm">Tunis</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// Additional components to complete the homepage:
+
+const InstagramFeed = () => (
+  <section className="section-padding bg-white">
+    <div className="container-luxury">
+      <div className="text-center max-w-2xl mx-auto mb-12">
+        <h2 className="heading-lg mb-4 slide-up">Suivez-nous sur Instagram</h2>
+        <p className="text-luxury-600 slide-up stagger-1">
+          Découvrez nos dernières réalisations et inspirations sur notre compte Instagram.
+        </p>
+      </div>
+      
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {[1, 2, 3, 4, 5, 6].map((item) => (
+          <a 
+            key={item} 
+            href="https://www.instagram.com/bargaoui_rideaux_tahar" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block aspect-square overflow-hidden group slide-up"
+          >
+            <img 
+              src={`https://images.unsplash.com/photo-1616047006789-b7af5afb8c2${item}`} 
+              alt={`Inspiration de rideaux ${item}`}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          </a>
+        ))}
+      </div>
+      
+      <div className="text-center mt-8">
+        <a 
+          href="https://www.instagram.com/bargaoui_rideaux_tahar" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-flex items-center text-luxury-800 font-medium hover:text-luxury-600 transition-colors"
+        >
+          <span>@bargaoui_rideaux_tahar</span>
+          <ArrowRight className="ml-2" size={16} />
+        </a>
+      </div>
+    </div>
+  </section>
+);
+
+const ContactCTA = () => (
+  <section className="section-padding bg-luxury-900 text-white">
+    <div className="container-luxury">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span className="inline-block px-4 py-1 border border-white/20 text-white/80 uppercase tracking-wider text-xs mb-6 slide-up">
+            Contactez-nous
+          </span>
+          <h2 className="heading-lg text-white mb-6 slide-up stagger-1">
+            Prêt à transformer <br/>votre intérieur?
+          </h2>
+          <p className="text-white/80 mb-8 slide-up stagger-2">
+            Prenez rendez-vous pour une consultation personnalisée dans notre showroom ou à votre domicile. Nos experts vous aideront à créer des rideaux parfaitement adaptés à votre espace.
+          </p>
+          
+          <ul className="space-y-4 mb-8 slide-up stagger-3">
+            <li className="flex items-start">
+              <Phone className="text-luxury-300 mr-3 flex-shrink-0 mt-1" size={18} />
+              <div>
+                <p className="font-medium">Appelez-nous</p>
+                <a href="tel:+21650929292" className="text-white/80 hover:text-white transition-colors">
+                  +216 50 92 92 92
+                </a>
+              </div>
+            </li>
+            <li className="flex items-start">
+              <Mail className="text-luxury-300 mr-3 flex-shrink-0 mt-1" size={18} />
+              <div>
+                <p className="font-medium">Envoyez-nous un email</p>
+                <a href="mailto:contact@bargaoui-rideaux.tn" className="text-white/80 hover:text-white transition-colors">
+                  contact@bargaoui-rideaux.tn
+                </a>
+              </div>
+            </li>
+            <li className="flex items-start">
+              <MapPin className="text-luxury-300 mr-3 flex-shrink-0 mt-1" size={18} />
+              <div>
+                <p className="font-medium">Visitez notre showroom</p>
+                <p className="text-white/80">
+                  1143 Avenue UMA La Soukra, Ariana 2036
+                </p>
+              </div>
+            </li>
+          </ul>
+          
+          <div className="flex flex-col sm:flex-row gap-4 slide-up stagger-4">
+            <Link 
+              to="/contact" 
+              className="btn-luxury bg-white text-luxury-900 hover:bg-white/90"
+            >
+              Demander un rendez-vous
+            </Link>
+            <Link 
+              to="/about" 
+              className="btn-luxury-outline text-white border-white hover:bg-white/10"
+            >
+              En savoir plus
+            </Link>
+          </div>
+        </div>
+        
+        <div className="relative hidden lg:block">
+          <div className="aspect-[4/5] overflow-hidden rounded-sm slide-up stagger-5">
+            <img 
+              src="https://images.unsplash.com/photo-1537726235470-8504e3beef77?q=80&w=2670&auto=format&fit=crop" 
+              alt="Notre showroom"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-sm shadow-lg slide-up stagger-6">
+            <p className="font-serif italic text-luxury-800">
+              "Notre mission est de créer des espaces qui vous ressemblent."
+            </p>
+            <p className="text-luxury-600 text-sm mt-2">
+              - Tahar Bargaoui, Fondateur
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// FAQ Section
+const FAQSection = () => (
+  <section className="section-padding bg-luxury-50">
+    <div className="container-luxury">
+      <div className="text-center max-w-2xl mx-auto mb-16">
+        <h2 className="heading-lg mb-4 slide-up">Questions fréquentes</h2>
+        <p className="text-luxury-600 slide-up stagger-1">
+          Tout ce que vous devez savoir sur nos produits et services.
+        </p>
+      </div>
+      
+      <div className="max-w-3xl mx-auto divide-y divide-luxury-200">
+        {[
+          {
+            question: "Comment se déroule une commande de rideaux sur mesure ?",
+            answer: "Le processus commence par une consultation où nous discutons de vos besoins et préférences. Nous prenons ensuite les mesures précises de vos fenêtres, vous présentons une sélection de tissus et options de confection. Une fois votre choix finalisé, nous produisons vos rideaux et procédons à l'installation par notre équipe professionnelle."
+          },
+          {
+            question: "Quel est le délai de livraison pour des rideaux sur mesure ?",
+            answer: "Le délai de fabrication varie généralement entre 2 et 4 semaines selon la complexité du projet et la disponibilité des tissus. Nous vous informons du délai précis lors de la validation de votre commande."
+          },
+          {
+            question: "Proposez-vous un service d'installation ?",
+            answer: "Oui, nous offrons un service d'installation complet par notre équipe de professionnels. Ce service inclut la fixation des tringles, l'installation des rideaux et les ajustements nécessaires pour un résultat parfait."
+          },
+          {
+            question: "Comment entretenir mes rideaux ?",
+            answer: "Les instructions d'entretien varient selon le type de tissu. Nous fournissons avec chaque commande une fiche détaillée d'entretien. En général, nous recommandons un nettoyage professionnel pour préserver la qualité et la durabilité de vos rideaux de luxe."
+          }
+        ].map((faq, index) => (
+          <div key={index} className="py-6 slide-up">
+            <h3 className="text-lg font-medium text-luxury-900 mb-3">{faq.question}</h3>
+            <p className="text-luxury-600">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+      
+      <div className="text-center mt-12 slide-up">
+        <Link 
+          to="/faq" 
+          className="inline-flex items-center text-luxury-800 font-medium hover:text-luxury-600 transition-colors"
+        >
+          <span>Voir toutes les questions fréquentes</span>
+          <ArrowRight className="ml-2" size={16} />
+        </Link>
+      </div>
+    </div>
+  </section>
+);
 
 const Index = () => {
   useEffect(() => {
@@ -31,8 +350,8 @@ const Index = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Business schema for structured data
-  const businessSchema = {
+  // Schema for the Home page
+  const homeSchema = {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     "name": "Bargaoui Rideaux Tahar",
@@ -40,56 +359,13 @@ const Index = () => {
     "image": "https://bargaoui-rideauxtahar.netlify.app/LOGO_NOIR.png",
     "url": "https://bargaoui-rideauxtahar.netlify.app/",
     "telephone": "+216 50 92 92 92",
-    "address": [
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "V6CM+H46, 143 Avenue UMA 2036 Ariana, Tunis",
-        "addressLocality": "Ariana",
-        "postalCode": "2036",
-        "telephone": "90251525"
-      },
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "2 Av. Hédi Nouira, Ariana 2037",
-        "addressLocality": "Ariana",
-        "postalCode": "2037",
-        "telephone": "20204425"
-      },
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "Av des Martyres, 100m après le terminus du métro, à côté Banque Bh, Mourouj 5 Ben Arousse",
-        "addressLocality": "Ben Arousse",
-        "postalCode": "2074",
-        "telephone": "55784848"
-      },
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "Comptoire Sfaxien, Route G1 Face",
-        "addressLocality": "2034",
-        "telephone": "94193192"
-      },
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "Entrée de Bizerte, Juste Avant le pont, Zarzouna Bizerte",
-        "addressLocality": "Bizerte",
-        "postalCode": "7021",
-        "telephone": "23300670"
-      },
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "Avenue Abou Dhabi el Mrezga Hammamet",
-        "addressLocality": "Hammamet",
-        "postalCode": "8050",
-        "telephone": "22336622"
-      },
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "WG2W+XMC, Route Gp1 Face Mall of Sousse",
-        "addressLocality": "Akouda",
-        "postalCode": "4000",
-        "telephone": "90251515"
-      }
-    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1143 Avenue UMA La Soukra",
+      "addressLocality": "Ariana",
+      "postalCode": "2036",
+      "addressCountry": "TN"
+    },
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": 36.8065,
@@ -112,20 +388,20 @@ const Index = () => {
     "sameAs": [
       "https://www.facebook.com/Bargaoui.Rideaux.Tahar",
       "https://www.instagram.com/bargaoui_rideaux_tahar"
-    ],
-    "priceRange": "TND",
-    "areaServed": "Tunisie"
+    ]
   };
 
   return (
     <main>
-      <SEO
-        title="Bargaoui Rideaux Tahar - Créateur de Rideaux de Luxe en Tunisie depuis 1998"
-        description="Bargaoui Rideaux Tahar, votre spécialiste des rideaux et textiles d'ameublement de luxe sur mesure depuis 1998. Qualité exceptionnelle, élégance et savoir-faire artisanal tunisien."
-        keywords="Bargaoui Rideaux, Bargaoui Rideaux Tahar, BargaouiRideaux, rideaux de luxe, textiles d'ameublement, rideaux sur mesure, voilage, décoration intérieure, Tunisie, rideaux Tunisie, ameublement Tunisie"
-        canonicalUrl="/"
-        schemaData={businessSchema}
-      />
+      <Helmet>
+        <title>Bargaoui Rideaux Tahar - Créateur de Rideaux de Luxe en Tunisie depuis 1998</title>
+        <meta name="description" content="Bargaoui Rideaux Tahar, spécialiste des rideaux et textiles d'ameublement de luxe sur mesure depuis 1998. Qualité exceptionnelle, élégance et savoir-faire artisanal tunisien pour votre décoration intérieure." />
+        <meta name="keywords" content="Bargaoui Rideaux, Bargaoui Rideaux Tahar, rideaux de luxe, textiles d'ameublement, rideaux sur mesure, voilage, décoration intérieure, Tunisie, rideaux Tunisie, ameublement Tunisie, rideaux haut de gamme" />
+        <link rel="canonical" href="https://bargaoui-rideauxtahar.netlify.app/" />
+        <script type="application/ld+json">
+          {JSON.stringify(homeSchema)}
+        </script>
+      </Helmet>
 
       <Hero />
       
@@ -219,19 +495,28 @@ const Index = () => {
               <p className="text-luxury-600 mb-8 slide-up stagger-3">
                 Chaque création est le fruit d'une expertise transmise de génération en génération, associée à une vision contemporaine de l'élégance et du raffinement.
               </p>
-              <Link to="/about" className="inline-flex items-center text-luxury-800 font-medium slide-up stagger-4">
-                <span className="border-b border-luxury-300 hover:border-luxury-800 transition-all">Découvrir notre histoire</span>
-                <ArrowRight className="ml-2" size={16} />
+              <Link 
+                to="/about" 
+                className="btn-luxury-outline text-luxury-800 border-luxury-800 hover:bg-luxury-50 slide-up stagger-4"
+              >
+                Découvrir notre histoire
               </Link>
             </div>
-            
-            <div className="order-1 lg:order-2 relative">
-              <div className="relative z-10 slide-up">
-                <img 
-                  src="https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=2127&auto=format&fit=crop" 
-                  alt="Détail d'un tissu"
-                  className="rounded-sm border-8 border-white shadow-xl"
-                />
+            <div className="order-1 lg:order-2">
+              <div className="relative">
+                <div className="aspect-[4/3] overflow-hidden rounded-sm slide-up">
+                  <img 
+                    src="https://images.unsplash.com/photo-1615529328331-f8917597711f?q=80&w=2574&auto=format&fit=crop" 
+                    alt="Atelier Bargaoui Rideaux"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-luxury-100 rounded-full flex items-center justify-center p-6 text-center slide-up stagger-1">
+                  <div>
+                    <p className="text-4xl font-serif text-luxury-800 mb-1">25+</p>
+                    <p className="text-luxury-600 text-sm">ans d'expertise</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -239,45 +524,14 @@ const Index = () => {
       </section>
       
       <TestimonialSlider />
-      
-      {/* CTA section */}
-      <section className="relative py-20">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-luxury-950/70 mix-blend-multiply z-10"></div>
-          <img 
-            src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2558&auto=format&fit=crop" 
-            alt="Interior with luxury curtains"
-            className="object-cover object-center w-full h-full"
-          />
-        </div>
-        
-        <div className="container-luxury relative z-20">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="heading-lg text-white mb-6 slide-up">
-              Transformez votre intérieur avec nos créations sur mesure
-            </h2>
-            <p className="text-white/80 text-lg mb-10 slide-up stagger-1">
-              Prenez rendez-vous avec nos experts pour un conseil personnalisé et une estimation gratuite.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4 slide-up stagger-2">
-              <Link 
-                to="/contact" 
-                className="btn-luxury bg-white text-luxury-900 hover:bg-white/90"
-              >
-                Prendre rendez-vous
-              </Link>
-              <Link 
-                to="/products" 
-                className="btn-luxury-outline text-white border-white hover:bg-white/10"
-              >
-                Découvrir nos collections
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+    
+      <FAQSection />
+      <Instagramfeed />
+      <ContactCTA />
     </main>
   );
 };
 
 export default Index;
+
+

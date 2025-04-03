@@ -93,108 +93,107 @@ const ProductDetails = () => {
   return (
     <main>
       <SEO
-        title={`${product.name} | Bargaoui Rideaux Tahar`}
-        description={`${product.description} - Découvrez nos rideaux de luxe sur mesure chez Bargaoui Rideaux Tahar.`}
-        keywords={`${product.name}, rideaux de luxe, Bargaoui Rideaux, rideaux sur mesure, textiles d'ameublement, Tunisie`}
-        canonicalUrl={`/products/${id}`}
-        imageUrl={product.images?.[0] || '/placeholder.svg'}
-        schemaData={productSchema}
+      title={`${product.name} | Bargaoui Rideaux Tahar`}
+      description={`${product.description} - Découvrez nos rideaux de luxe sur mesure chez Bargaoui Rideaux Tahar.`}
+      keywords={`${product.name}, rideaux de luxe, Bargaoui Rideaux, rideaux sur mesure, textiles d'ameublement, Tunisie`}
+      canonicalUrl={`/products/${id}`}
+      schemaData={productSchema}
       />
 
       <div className="container mx-auto py-20 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          {/* Product Images */}
-          <div className="space-y-4">
-            <div className="overflow-hidden rounded-lg bg-gray-100 h-96">
-              <img
-                src={selectedImage || (Array.isArray(product.images) && product.images[0]) || '/placeholder.svg'}
-                alt={product.name}
-                className="h-full w-full object-contain object-center"
-              />
-            </div>
-
-            {Array.isArray(product.images) && product.images.length > 1 && (
-              <div className="flex gap-2 overflow-x-auto">
-                {product.images.map((image, index) => (
-                  <div
-                    key={index}
-                    className={`cursor-pointer border-2 rounded-md overflow-hidden w-20 h-20 ${
-                      selectedImage === image ? 'border-primary' : 'border-transparent'
-                    }`}
-                    onClick={() => setSelectedImage(image)}
-                  >
-                    <img
-                      src={image}
-                      alt={`${product.name} thumbnail ${index + 1}`}
-                      className="h-full w-full object-cover object-center"
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Product Details */}
-          <div className="space-y-6">
-            <div>
-              <h1 className="text-3xl font-bold">{product.name}</h1>
-              <p className="text-gray-500">{t('category')}: {product.category}</p>
-            </div>
-
-            <Separator />
-
-            <div>
-              <h2 className="text-lg font-medium mb-2">{t('description')}</h2>
-              <p className="text-gray-700">{product.description}</p>
-            </div>
-
-            <div>
-              <h2 className="text-lg font-medium mb-2">{t('material')}</h2>
-              <p className="text-gray-700">{product.material}</p>
-            </div>
-          </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        {/* Product Images */}
+        <div className="space-y-4">
+        <div className="overflow-hidden rounded-lg bg-gray-100 h-96">
+          <img
+          src={selectedImage || (Array.isArray(product.images) && product.images[0]) || '/placeholder.svg'}
+          alt={product.name}
+          className="h-full w-full object-contain object-center"
+          />
         </div>
 
-        {/* Related Products */}
-        {relatedProducts.length > 0 && (
-          <div className="mt-16">
-            <h2 className="text-2xl font-bold mb-6">{t('relatedProducts')}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {relatedProducts.map((relatedProduct) => (
-                <Card
-                  key={relatedProduct.id}
-                  className="overflow-hidden cursor-pointer"
-                  onClick={() => navigate(`/products/${relatedProduct.id}`)}
-                >
-                  <div className="aspect-square overflow-hidden">
-                    {(() => {
-                      // Ensure images is an array
-                      const images =
-                        typeof relatedProduct.images === 'string'
-                          ? JSON.parse(relatedProduct.images)
-                          : relatedProduct.images;
-
-                      return (
-                        <img
-                          src={
-                            Array.isArray(images) && images.length > 0
-                              ? images[0] // Use the first image in the array
-                              : '/placeholder.svg' // Fallback image
-                          }
-                          alt={relatedProduct.name}
-                          className="h-full w-full object-cover transition-transform hover:scale-105"
-                        />
-                      );
-                    })()}
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-medium">{relatedProduct.name}</h3>
-                  </div>
-                </Card>
-              ))}
+        {Array.isArray(product.images) && product.images.length > 1 && (
+          <div className="flex gap-2 overflow-x-auto">
+          {product.images.map((image, index) => (
+            <div
+            key={index}
+            className={`cursor-pointer border-2 rounded-md overflow-hidden w-20 h-20 ${
+              selectedImage === image ? 'border-primary' : 'border-transparent'
+            }`}
+            onClick={() => setSelectedImage(image)}
+            >
+            <img
+              src={image}
+              alt={`${product.name} thumbnail ${index + 1}`}
+              className="h-full w-full object-cover object-center"
+            />
             </div>
+          ))}
           </div>
         )}
+        </div>
+
+        {/* Product Details */}
+        <div className="space-y-6">
+        <div>
+          <h1 className="text-3xl font-bold">{product.name}</h1>
+          <p className="text-gray-500">{t('category')}: {product.category}</p>
+        </div>
+
+        <Separator />
+
+        <div>
+          <h2 className="text-lg font-medium mb-2">{t('description')}</h2>
+          <p className="text-gray-700">{product.description}</p>
+        </div>
+
+        <div>
+          <h2 className="text-lg font-medium mb-2">{t('material')}</h2>
+          <p className="text-gray-700">{product.material}</p>
+        </div>
+        </div>
+      </div>
+
+      {/* Related Products */}
+      {relatedProducts.length > 0 && (
+        <div className="mt-16">
+        <h2 className="text-2xl font-bold mb-6">{t('relatedProducts')}</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {relatedProducts.map((relatedProduct) => (
+          <Card
+            key={relatedProduct.id}
+            className="overflow-hidden cursor-pointer"
+            onClick={() => navigate(`/products/${relatedProduct.id}`)}
+          >
+            <div className="aspect-square overflow-hidden">
+            {(() => {
+              // Ensure images is an array
+              const images =
+              typeof relatedProduct.images === 'string'
+                ? JSON.parse(relatedProduct.images)
+                : relatedProduct.images;
+
+              return (
+              <img
+                src={
+                Array.isArray(images) && images.length > 0
+                  ? images[0] // Use the first image in the array
+                  : '/placeholder.svg' // Fallback image
+                }
+                alt={relatedProduct.name}
+                className="h-full w-full object-cover transition-transform hover:scale-105"
+              />
+              );
+            })()}
+            </div>
+            <div className="p-4">
+            <h3 className="font-medium">{relatedProduct.name}</h3>
+            </div>
+          </Card>
+          ))}
+        </div>
+        </div>
+      )}
       </div>
     </main>
   );

@@ -5,51 +5,93 @@ interface SEOProps {
   description: string;
   keywords?: string;
   canonicalUrl?: string;
-  imageUrl?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article' | 'product';
+  twitterCard?: 'summary' | 'summary_large_image';
   schemaData?: Record<string, any>;
+  noIndex?: boolean;
 }
 
 const SEO = ({
   title,
   description,
-  keywords = "Bargaoui Rideaux, Bargaoui Rideaux Tahar, BargaouiRideaux, rideaux de luxe, textiles d'ameublement, rideaux sur mesure, Tunisie",
+  keywords,
   canonicalUrl,
-  imageUrl = "https://bargaoui-rideauxtahar.netlify.app/LOGO_NOIR.png", // Replace with your logo URL
+  ogImage = 'https://bargaoui-rideauxtahar.netlify.app/og-image.jpg',
+  ogType = 'website',
+  twitterCard = 'summary_large_image',
   schemaData,
+  noIndex = false,
 }: SEOProps) => {
-  const baseUrl = "https://bargaoui-rideauxtahar.netlify.app";
-  const currentUrl = canonicalUrl ? `${baseUrl}${canonicalUrl}` : baseUrl;
-  
+  const siteUrl = 'https://bargaoui-rideauxtahar.netlify.app';
+  const fullCanonicalUrl = canonicalUrl ? `${siteUrl}${canonicalUrl}` : undefined;
+
   return (
     <Helmet>
-      {/* Basic Metadata */}
+      {/* Title and Meta Description */}
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
-      
+
+      {/* Keywords */}
+      {keywords && <meta name="keywords" content={keywords} />}
+
       {/* Canonical URL */}
-      <link rel="canonical" href={currentUrl} />
-      
-      {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={currentUrl} />
+      {fullCanonicalUrl && <link rel="canonical" href={fullCanonicalUrl} />}
+
+      {/* Open Graph Tags */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={imageUrl} />
-      
-      {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={currentUrl} />
-      <meta property="twitter:title" content={title} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={imageUrl} />
-      
-      {/* JSON-LD Structured Data */}
+      <meta property="og:type" content={ogType} />
+      {fullCanonicalUrl && <meta property="og:url" content={fullCanonicalUrl} />}
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:site_name" content="Bargaoui Rideaux Tahar" />
+      <meta property="og:locale" content="fr_FR" />
+
+      {/* Twitter Card Tags */}
+      <meta name="twitter:card" content={twitterCard} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage} />
+
+      {/* Indexing */}
+      {noIndex && <meta name="robots" content="noindex, follow" />}
+
+      {/* Structured Data (Schema.org) */}
       {schemaData && (
         <script type="application/ld+json">
           {JSON.stringify(schemaData)}
         </script>
       )}
+
+      {/* Basic Organization Structured Data */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Bargaoui Rideaux Tahar",
+          "url": siteUrl,
+          "logo": `${siteUrl}/LOGO_NOIR.png`,
+          "description":
+            "Créateur de rideaux et textiles d'ameublement de luxe sur mesure depuis 1998. Qualité, élégance et savoir-faire artisanal tunisien.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1143 Avenue UMA La Soukra",
+            "addressLocality": "Ariana",
+            "postalCode": "2036",
+            "addressCountry": "TN",
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+216 50 92 92 92",
+            "contactType": "customer service",
+            "availableLanguage": ["French", "Arabic"],
+          },
+          "sameAs": [
+            "https://www.facebook.com/Bargaoui.Rideaux.Tahar",
+            "https://www.instagram.com/bargaoui_rideaux_tahar",
+          ],
+        })}
+      </script>
     </Helmet>
   );
 };
