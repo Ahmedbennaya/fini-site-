@@ -1,13 +1,15 @@
-
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram,   Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 import { FaPinterest } from 'react-icons/fa'; // Import Pinterest icon from react-icons
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
-    <footer className="bg-luxury-950 text-white">
+    <footer
+      className="bg-luxury-950 text-white"
+      style={{ minHeight: '250px' }} // Explicit height to prevent layout shifts
+    >
       <div className="container-luxury">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-16">
           {/* Column 1 - About */}
@@ -21,18 +23,33 @@ const Footer = () => {
               Depuis 1998, Bargaoui Rideaux crée des rideaux et textiles d'ameublement sur mesure, alliant tradition et modernité pour sublimer vos intérieurs.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/Bargaoui.Rideaux.Tahar" className="text-white/70 hover:text-white transition-colors" aria-label="Facebook">
+              <a
+                href="https://www.facebook.com/Bargaoui.Rideaux.Tahar"
+                className="text-white/70 hover:text-white transition-colors"
+                aria-label="Facebook"
+                style={{ width: '20px', height: '20px' }} // Reserve space
+              >
                 <Facebook size={20} />
               </a>
-              <a href="https://www.instagram.com/bargaoui_rideaux_tahar" className="text-white/70 hover:text-white transition-colors" aria-label="Instagram">
+              <a
+                href="https://www.instagram.com/bargaoui_rideaux_tahar"
+                className="text-white/70 hover:text-white transition-colors"
+                aria-label="Instagram"
+                style={{ width: '20px', height: '20px' }} // Reserve space
+              >
                 <Instagram size={20} />
               </a>
-              <a href="https://www.pinterest.com/BargaouiRideauxTahar" className="text-white/70 hover:text-white transition-colors" aria-label="Pinterest">
-  <FaPinterest size={20} />
-</a>
+              <a
+                href="https://www.pinterest.com/BargaouiRideauxTahar"
+                className="text-white/70 hover:text-white transition-colors"
+                aria-label="Pinterest"
+                style={{ width: '20px', height: '20px' }} // Reserve space
+              >
+                <FaPinterest size={20} />
+              </a>
             </div>
           </div>
-          
+
           {/* Column 2 - Quick Links */}
           <div>
             <h4 className="text-lg font-medium mb-6 border-b border-white/10 pb-2">Liens Rapides</h4>
@@ -51,7 +68,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
+
           {/* Column 3 - Collections */}
           <div>
             <h4 className="text-lg font-medium mb-6 border-b border-white/10 pb-2">Nos Collections</h4>
@@ -70,7 +87,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
+
           {/* Column 4 - Contact */}
           <div>
             <h4 className="text-lg font-medium mb-6 border-b border-white/10 pb-2">Contactez-nous</h4>
@@ -90,7 +107,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        
+
         {/* Bottom bar */}
         <div className="border-t border-white/10 py-6 text-center sm:flex sm:justify-between sm:text-left">
           <p className="text-white/50 text-sm">

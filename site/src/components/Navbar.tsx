@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -43,8 +42,14 @@ const Navbar = () => {
       <div className="container-luxury flex items-center justify-between">
         {/* Logo */}
         <NavLink to="/" className="flex items-center">
-  <img src="/LOGO NOIR.png" alt="Bargaoui Rideaux Logo" className="h-12 md:h-16" />
-</NavLink>
+          <img
+            src="/LOGO NOIR.png"
+            alt="Logo"
+            className="h-16 transition-all duration-300"
+            width="64" /* Add explicit width */
+            height="64" /* Add explicit height */
+          />
+        </NavLink>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
