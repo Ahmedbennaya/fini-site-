@@ -3,10 +3,17 @@
 User-agent: *
 Allow: /
 
+User-agent: Googlebot
+Allow: /images/
+
+# Allow Googlebot to access all resources
+Allow: /images/
+Allow: /static/
+Allow: /public/
+
 # Protect admin area from indexing
 Disallow: /admin/
 Disallow: /admin/*
-
 
 # Sitemap location
 Sitemap: https://bargaoui-rideauxtahar.netlify.app/sitemap.xml
