@@ -49,7 +49,7 @@ const ProductShowcase = () => (
         <div className="group relative overflow-hidden rounded-sm slide-up stagger-1">
           <div className="aspect-[4/5] overflow-hidden">
             <img 
-              src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//Design%20sans%20titre%20(10).png" 
+              src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//Design%20sans%20titre%20(11).png" 
               alt="Collection Classique"
               className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
             />
