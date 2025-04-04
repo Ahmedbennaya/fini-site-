@@ -17,7 +17,7 @@ const SEO = ({
   description,
   keywords,
   canonicalUrl,
-  ogImage = 'https://bargaoui-rideauxtahar.netlify.app/og-image.jpg',
+  ogImage = 'https://bargaoui-rideauxtahar.netlify.app/LOGO NOIR.png',
   ogType = 'website',
   twitterCard = 'summary_large_image',
   schemaData,
