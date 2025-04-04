@@ -28,12 +28,17 @@ const Hero = () => {
           className="absolute inset-0 bg-gradient-to-b from-luxury-950/50 to-luxury-900/80 mix-blend-multiply z-10"
           aria-hidden="true"
         ></div>
-       <video
+        {/* Préchargement de la vidéo avec dimensions explicites pour éviter le CLS */}
+        <video
           src="/Tahar vedio.mp4" // Updated to use the Tahar video from the public folder
           className="object-cover object-center w-full h-full"
           autoPlay
           loop
           muted
+          preload="auto"
+          width="1920"
+          height="1080"
+          poster="/LOGO NOIR.png" // Ajout d'un poster pour éviter le CLS pendant le chargement
         />
       </div>
 
