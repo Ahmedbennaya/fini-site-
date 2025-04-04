@@ -30,7 +30,7 @@ const Hero = () => {
         ></div>
         {/* Préchargement de la vidéo avec dimensions explicites pour éviter le CLS */}
         <video
-          src="/Tahar vedio.mp4" // Updated to use the Tahar video from the public folder
+          src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//Tahar%20vedio.mp4"
           className="object-cover object-center w-full h-full"
           autoPlay
           loop

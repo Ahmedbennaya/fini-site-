@@ -90,7 +90,7 @@ const products = [
     id: 8,
     name: 'Embrasse rideaux',
     description: 'Embrasse en tissu raffiné pour une touche élégante à vos rideaux.',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfGd8B_ybeSVI5WO2SlO1Cse7crN-9V91inVDFIaFvng6cGu9LzmP6hRxrrKtiz4e_N1A&usqp=CAU',
+    image: 'https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//file_00000000f3d451f7ab8a64e530c9588e_conversation_id=67efa7b9-f9fc-800b-a713-bfaf191dcf60&message_id=c347b982-86a8-4f9e-9a1b-36c935af85cf.jpg',
     category: 'embrasses-rideaux',
     material: 'embrasses-rideaux'
   },
@@ -193,7 +193,7 @@ const Products = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-luxury-950/40 mix-blend-multiply z-10"></div>
         <img 
-        src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=2574&auto=format&fit=crop" 
+        src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//image_fx%20(4).jpg" 
         alt="Collections Bargaoui Rideaux"
         className="object-cover object-center w-full h-full"
         />

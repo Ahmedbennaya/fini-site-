@@ -25,7 +25,7 @@ const ProductShowcase = () => (
         <div className="group relative overflow-hidden rounded-sm slide-up">
           <div className="aspect-[4/5] overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2532&auto=format&fit=crop" 
+              src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//Design%20sans%20titre%20(12).png" 
               alt="Collection Premium"
               className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
             />
@@ -49,7 +49,7 @@ const ProductShowcase = () => (
         <div className="group relative overflow-hidden rounded-sm slide-up stagger-1">
           <div className="aspect-[4/5] overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=2574&auto=format&fit=crop" 
+              src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//Design%20sans%20titre%20(10).png" 
               alt="Collection Classique"
               className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
             />
@@ -73,7 +73,7 @@ const ProductShowcase = () => (
         <div className="group relative overflow-hidden rounded-sm slide-up stagger-2">
           <div className="aspect-[4/5] overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2669&auto=format&fit=crop" 
+              src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//Design%20sans%20titre%20(13).png" 
               alt="Voilages"
               className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
             />
@@ -256,7 +256,7 @@ const ContactCTA = () => (
         <div className="relative hidden lg:block">
           <div className="aspect-[4/5] overflow-hidden rounded-sm slide-up stagger-5">
             <img 
-              src="https://images.unsplash.com/photo-1537726235470-8504e3beef77?q=80&w=2670&auto=format&fit=crop" 
+              src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//showrom.jpg" 
               alt="Notre showroom"
               className="w-full h-full object-cover"
             />
@@ -356,7 +356,7 @@ const Index = () => {
     "@type": "HomeAndConstructionBusiness",
     "name": "Bargaoui Rideaux Tahar",
     "description": "Créateur de rideaux et textiles d'ameublement de luxe sur mesure depuis 1998. Qualité, élégance et savoir-faire artisanal tunisien.",
-    "image": "https://bargaoui-rideauxtahar.netlify.app/LOGO_NOIR.png",
+    "image": "https://bargaoui-rideauxtahar.netlify.app/LOGO NOIR.png",
     "url": "https://bargaoui-rideauxtahar.netlify.app/",
     "telephone": "+216 50 92 92 92",
     "address": {
@@ -506,7 +506,7 @@ const Index = () => {
               <div className="relative">
                 <div className="aspect-[4/3] overflow-hidden rounded-sm slide-up">
                   <img 
-                    src="https://images.unsplash.com/photo-1615529328331-f8917597711f?q=80&w=2574&auto=format&fit=crop" 
+                    src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//Design%20sans%20titre%20(15).png" 
                     alt="Atelier Bargaoui Rideaux"
                     className="w-full h-full object-cover"
                   />
