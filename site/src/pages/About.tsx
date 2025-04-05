@@ -65,7 +65,7 @@ const About = () => {
       "@type": "Organization",
       "name": "Bargaoui Rideaux Tahar",
       "description": "Créateur de rideaux et textiles d'ameublement de luxe sur mesure depuis 1998. Qualité, élégance et savoir-faire artisanal tunisien.",
-      "image": "https://bargaoui-rideauxtahar.netlify.app/LOGO_NOIR.png",
+      "image": "https://bargaoui-rideauxtahar.netlify.app/LOGO NOIR.png",
       "url": "https://bargaoui-rideauxtahar.netlify.app/about",
       "foundingDate": "1998",
       "founder": {
@@ -99,7 +99,7 @@ const About = () => {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-luxury-950/40 mix-blend-multiply z-10"></div>
           <img 
-            src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2532&auto=format&fit=crop" 
+            src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//photo-1616486338812-3dadae4b4ace.avif"
             alt="Atelier Bargaoui Rideaux"
             className="object-cover object-center w-full h-full"
           />
@@ -127,13 +127,15 @@ const About = () => {
             <div>
               <div className="relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=2670&auto=format&fit=crop" 
+                    src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//image_fx%20(6).jpg" 
+
                   alt="Showroom Bargaoui Rideaux" 
                   className="rounded-sm slide-up"
                 />
                 <div className="absolute -bottom-8 -right-8 w-2/3 z-10">
                   <img 
-                    src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=2574&auto=format&fit=crop" 
+                  src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//image_fx%20(5).jpg" 
+
                     alt="Détail d'un rideau" 
                     className="rounded-sm border-8 border-white shadow-xl slide-up stagger-2"
                   />
@@ -280,7 +282,7 @@ const About = () => {
             <div className="bg-white rounded-sm overflow-hidden shadow-sm slide-up stagger-1">
               <div className="aspect-[4/3]">
                 <img 
-                  src="https://res.cloudinary.com/dc1zy9h63/image/upload/v1742529301/408139586_2050489678664386_388047952161963732_n_kwvpxy.jpg" 
+                  src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//408139586_2050489678664386_388047952161963732_n_kwvpxy.jpg" 
                   alt="Tahar Bargaoui - Fondateur" 
                   className="w-full h-full object-cover"
                 />
@@ -298,7 +300,7 @@ const About = () => {
             <div className="bg-white rounded-sm overflow-hidden shadow-sm slide-up stagger-2">
               <div className="aspect-[4/3]">
                 <img 
-                  src="https://scontent.ftun2-2.fna.fbcdn.net/v/t39.30808-6/242185550_4244420348946302_4524954644133877537_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Gi-iQi1K2NkQ7kNvgFV0y8C&_nc_oc=AdkWuFgk61RVSo8bcXmh64E6RI1WGQbY6txaYpf08TkGJe9WtoJnCpoyoH6HWT4cifI&_nc_zt=23&_nc_ht=scontent.ftun2-2.fna&_nc_gid=j8hpmYM2TkntLA6mo2GYYQ&oh=00_AYF0thcbwDxeZWQvoXimf_BHM_keFlkss1NrrnhUefTjkQ&oe=67E66656" 
+                  src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//242185550_4244420348946302_4524954644133877537_n.jpg" 
                   alt="Mohamed Ali Attiya" 
                   className="w-full h-full object-cover"
                 />
@@ -316,7 +318,7 @@ const About = () => {
             <div className="bg-white rounded-sm overflow-hidden shadow-sm slide-up stagger-3">
               <div className="aspect-[4/3]">
                 <img 
-                  src="https://scontent.ftun2-2.fna.fbcdn.net/v/t1.6435-9/133082169_1736787693155249_6303303625634809209_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=YgvQCQCOw5sQ7kNvgH1mbjx&_nc_oc=Adk-BRTc6tnuhH3CUioaBXv9jV6rV41eVWsxrj-NvpApHL6u8MdfKgGgGkhptdio6uA&_nc_zt=23&_nc_ht=scontent.ftun2-2.fna&_nc_gid=3GqwGROjBmZi3kPZ5Svfrg&oh=00_AYFIvneHE_gE3CVfgjiASRG-ae__TAk-905zuRu4ZVMqOA&oe=6807E6E8" 
+                  src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//133082169_1736787693155249_6303303625634809209_n.jpg" 
                   alt="Islem Tlili" 
                   className="w-full h-full object-cover"
                 />
@@ -338,7 +340,7 @@ const About = () => {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-luxury-950/70 mix-blend-multiply z-10"></div>
           <img 
-            src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2669&auto=format&fit=crop" 
+            src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//photo-1513694203232-719a280e022f.avif"
             alt="Atelier Bargaoui Rideaux"
             className="object-cover object-center w-full h-full"
           />

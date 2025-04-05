@@ -80,7 +80,7 @@ const Contact = () => {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-luxury-950/40 mix-blend-multiply z-10"></div>
           <img
-            src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2670&auto=format&fit=crop"
+            src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//photo-1560448204-e02f11c3d0e2.avif"
             alt="Contact Bargaoui Rideaux"
             className="object-cover object-center w-full h-full"
           />

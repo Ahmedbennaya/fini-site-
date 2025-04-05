@@ -35,7 +35,7 @@ const products = [
     id: 1,
     name: 'Velours ',
     description: 'Un velours épais qui apporte chaleur et élégance à votre espace.',
-    image: 'https://www.247curtains.co.uk/media/catalog/product/m/t/mtm_curtain_cyrus_crushed_velvet_royal_blue_cutout_pdp_1.jpg',
+    image: 'https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//velvet.jpg',
     category: 'premium',
     material: 'velours'
   },
@@ -43,7 +43,7 @@ const products = [
     id: 2,
     name: 'Soie ',
     description: 'Rideau en soie pure avec des reflets lumineux qui subliment la lumière naturelle.',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ1URjns2D0rYBqD1b_Anf0piSnkXlC4gjCdBuxPFGgtenR5U7j_Y4Cf0m0M1aoLTb1PU&usqp=CAU',
+    image: 'https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//images.jpg',
     category: 'premium',
     material: 'soie'
   },
@@ -51,7 +51,7 @@ const products = [
     id: 3,
     name: 'Lin ',
     description: 'Un lin de qualité supérieure pour un style contemporain et intemporel.',
-    image: 'https://i.etsystatic.com/11003179/r/il/8189ae/6109438072/il_340x270.6109438072_pvh7.jpg',
+    image: 'https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//il_340x270.6109438072_pvh7.avif',
     category: 'classic',
     material: 'lin'
   },
@@ -59,15 +59,15 @@ const products = [
     id: 4,
     name: 'Voilage ',
     description: 'Voilage délicat qui filtre la lumière tout en préservant votre intimité.',
-    image: 'https://www.bouchara.com/media/catalog/product/0/9/09009652_2010_2_3.jpg?quality=100&bg-color=255,255,255&fit=bounds&height=655&width=475&canvas=475:655',
+    image: 'https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//09009652_2010_2_3.webp',
     category: 'voilages',
-    material: 'synthetique'
+    material: 'voilages'
   },
   {
     id: 5,
     name: 'Coton Naturel',
     description: 'Rideau en coton naturel, idéal pour un style épuré et écologique.',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSavzkeyoIuwWRoAlgbDzV1ExCLXlW2nkiA6Qxp-E_QYX_3_x6lH_c7Scmio6epP7d_NbE&usqp=CAU',
+    image: 'https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//coton.jpg',
     category: 'classic',
     material: 'coton'
   },
@@ -75,14 +75,14 @@ const products = [
     id: 6,
     name: ' Jacquard',
     description: 'Textile d\'ameublement avec motifs jacquard pour un intérieur sophistiqué.',
-    image: 'https://sino-silk.com/wp-content/uploads/2024/01/what-is-jacquard-fabric-1.jpeg',
+    image: 'https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//what-is-jacquard-fabric-1.jpg',
     category: 'Jacquard',
     material: 'Jacquard'
   },{
     id: 7,
     name: 'Nos Tringles  ',
     description: 'Tringle en métal robuste pour un support élégant et durable.',
-    image: 'https://www.cdiscount.com/pdt2/0/4/0/4/700x700/dou1725321076040/rw/douceur-d-interieur-kit-de-tringle-a-rideaux-ext.jpg',
+    image: 'https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//douceur-d-interieur-kit-de-tringle-a-rideaux-ext.webp',
     category: 'tringles-rideaux',
     material: 'tringles-rideaux'
   },
@@ -98,7 +98,7 @@ const products = [
     id: 9,
     name: 'accessoires-rideaux',
     description: 'Anneaux en plastique résistant pour un accrochage facile et discret.',
-    image: 'https://ae01.alicdn.com/kf/H5e046594f1414527888f8092898cdbd0t.jpg',
+    image: 'https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//H5e046594f1414527888f8092898cdbd0t.avif',
     category: 'accessoires-rideaux',
     material: 'accessoires-rideaux'
   }

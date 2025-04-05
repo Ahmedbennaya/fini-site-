@@ -121,7 +121,7 @@ const TestimonialSlider = () => (
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/3">
               <img 
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=2576&auto=format&fit=crop" 
+                src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//photo-1544005313-94ddf0286df2.avif"
                 alt="Sarah Mansour"
                 className="w-24 h-24 rounded-full object-cover mx-auto md:mx-0"
               />
