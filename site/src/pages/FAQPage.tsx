@@ -104,7 +104,7 @@ const ContactCTA = () => (
       
       <div className="hidden md:block">
         <img 
-          src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?q=80&w=2670&auto=format&fit=crop" 
+          src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//photo-1557426272-fc759fdf7a8d.avif" 
           alt="Service client Bargaoui Rideaux"
           className="w-full h-64 object-cover rounded-sm"
         />
@@ -339,7 +339,7 @@ const FAQPage = () => {
         {/* Add the hero image */}
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?q=80&w=2670&auto=format&fit=crop"
+            src="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//photo-1557426272-fc759fdf7a8d.avif"
             alt="Hero background"
             className="w-full h-full object-cover"
           />
