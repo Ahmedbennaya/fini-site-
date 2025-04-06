@@ -117,7 +117,7 @@ const Contact = () => {
                   <div>
                     <h3 className="text-lg font-medium mb-2">Bargaoui Rideaux Tahar La Soukra</h3>
                     <p className="text-luxury-600">
-                      1143 Avenue UMA La Soukra<br />
+                      143 Avenue UMA La Soukra<br />
                       Ariana, Tunisia<br />
                       <a
                         href="https://www.google.com/maps?q=V6CM+H46,+143+Avenue+UMA+2036+Ariana,+Tunis"

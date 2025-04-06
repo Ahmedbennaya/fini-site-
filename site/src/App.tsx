@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { AuthProvider, useAuth } from "@/context/AuthContext";
@@ -37,7 +37,15 @@ const AdminCategories = lazy(() => import("./pages/admin/Categories"));
 const MaterialDetails = lazy(() => import("./pages/MaterialDetails"));
 
 const queryClient = new QueryClient();
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 const ProtectedRoute = ({
   element,
   requireAdmin = false,
@@ -101,6 +109,8 @@ const App = () => (
             <Toaster />
             <Sonner />
             <BrowserRouter>
+            <ScrollToTop />
+
               <LanguageHandler />
               <NavbarTranslated />
               <Suspense fallback={<div>Loading...</div>}>

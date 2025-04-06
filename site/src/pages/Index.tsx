@@ -487,13 +487,21 @@ const Index = () => {
                 Notre histoire
               </span>
               <h2 className="heading-lg mb-6 slide-up stagger-1">
-                Une passion familiale <br/>depuis 1998
+                Une passion familiale <br/>depuis 1949 
               </h2>
               <p className="text-luxury-600 mb-6 slide-up stagger-2">
-                Fondée par Tahar Bargaoui, notre maison perpétue la tradition et le savoir-faire artisanal tunisien dans la création de rideaux et textiles d'ameublement de luxe.
+              Fondée en Juin 1949 par M Mohamed Bargaoui, entrepreneur
+              Bargaoui confection voie le jour a Tunis
               </p>
               <p className="text-luxury-600 mb-8 slide-up stagger-3">
-                Chaque création est le fruit d'une expertise transmise de génération en génération, associée à une vision contemporaine de l'élégance et du raffinement.
+              L'entreprise Bargaoui est aujourd'hui à sa deuxième génération
+forte d'une nouvelle direction générale et artistique
+- Convertit dans le secteur de décoration d'intérieur, la société a
+était renommer « Bargaoui Rideaux » se présentant aujourd'hui sur
+le marché avec tout genre de tissu et accessoire pour rideaux, mais
+elle est surtout spécialité sans la confection des rideaux sur mesure
+en réponse aux demande spécifique se ses clients
+
               </p>
               <Link 
                 to="/about" 

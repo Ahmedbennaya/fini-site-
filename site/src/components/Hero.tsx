@@ -51,23 +51,11 @@ const Hero = () => {
             </span>
           </div>
 
-          <h1
-            className={`heading-xl text-white mb-6 slide-up ${
-              loaded ? 'show' : ''
-            } stagger-2`}
-          >
-            L'art du rideau, <br />
-            <span className="italic">l'élégance de votre intérieur</span>
+          <h1 className="heading-xl text-white mb-6 slide-up stagger-1">
+            L'excellence <br />depuis 1949
           </h1>
-
-          <p
-            className={`text-white/90 text-lg mb-10 max-w-xl slide-up ${
-              loaded ? 'show' : ''
-            } stagger-3`}
-          >
-            Découvrez l'excellence et le savoir-faire de Bargaoui Rideaux, où
-            chaque création est pensée pour sublimer votre espace de vie avec
-            élégance et raffinement.
+          <p className="text-white/90 text-lg mb-10 max-w-xl slide-up stagger-2">
+            Fondée en juin 1949 par Mohamed Bargaoui, Bargaoui Rideaux est une entreprise familiale spécialisée dans la confection et la décoration d'intérieur.
           </p>
 
           <div

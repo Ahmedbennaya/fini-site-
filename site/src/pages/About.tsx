@@ -31,9 +31,9 @@ const About = () => {
   // Timeline data
   const timeline = [
     {
-      year: '1998',
+      year: '1949',
       title: 'Fondation',
-      description: 'Création de Bargaoui Rideaux par Tahar Bargaoui, artisan passionné par les textiles et la décoration d\'intérieur.'
+      description: 'Création de Bargaoui Rideaux par Mohamed Bargaoui, entrepreneur passionné par les textiles et la décoration d\'intérieur.'
     },
     {
       year: '2005',
@@ -53,7 +53,7 @@ const About = () => {
     {
       year: 'Aujourd\'hui',
       title: 'Héritage',
-      description: 'Perpetuation de l\'excellence et du savoir-faire transmis de génération en génération.'
+      description: 'Perpétuation de l\'excellence et du savoir-faire transmis de génération en génération.'
     }
   ];
 
@@ -111,11 +111,11 @@ const About = () => {
               Notre histoire
             </span>
             <h1 className="heading-xl text-white mb-6 slide-up stagger-1">
-              L'excellence <br/>depuis 1998
-            </h1>
-            <p className="text-white/90 text-lg mb-10 max-w-xl slide-up stagger-2">
-              Découvrez l'histoire et les valeurs qui font de Bargaoui Rideaux une référence dans le monde des rideaux et textiles d'ameublement de luxe.
-            </p>
+  L'excellence <br />depuis 1949
+</h1>
+<p className="text-white/90 text-lg mb-10 max-w-xl slide-up stagger-2">
+  Fondée en juin 1949 par Mohamed Bargaoui, Bargaoui Rideaux est une entreprise familiale spécialisée dans la confection et la décoration d'intérieur.
+</p>
           </div>
         </div>
       </section>
