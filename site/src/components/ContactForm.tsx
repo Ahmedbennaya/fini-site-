@@ -1,7 +1,7 @@
-
 import { useState, FormEvent } from 'react';
 import { CheckCircle2, Send } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const ContactForm = ({ minimal = false }: { minimal?: boolean }) => {
   const { toast } = useToast();
@@ -10,43 +10,77 @@ const ContactForm = ({ minimal = false }: { minimal?: boolean }) => {
     email: '',
     phone: '',
     subject: '',
-    message: ''
+    message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast({
-      title: "Message envoyé",
-      description: "Nous vous répondrons dans les plus brefs délais.",
-      duration: 5000,
-    });
-    
-    setIsSubmitting(false);
-    setSubmitted(true);
-    
-    // Reset form after some time
-    setTimeout(() => {
+
+    try {
+      // Check if the user is logged in
+      const { data: user } = await supabase.auth.getUser();
+
+      if (!user) {
+        // Show toast if the user is not logged in
+        toast({
+          title: 'Connexion requise',
+          description: 'Vous devez vous connecter pour envoyer un message.',
+          duration: 5000,
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Insert data into the Supabase `messages` table
+      const { error } = await supabase
+        .from('messages')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            subject: formData.subject,
+            message: formData.message,
+          },
+        ]);
+
+      if (error) {
+        throw new Error('Failed to send message');
+      }
+
+      toast({
+        title: 'Message envoyé',
+        description: 'Nous vous répondrons dans les plus brefs délais.',
+        duration: 5000,
+      });
+
+      setSubmitted(true);
+
+      // Reset form after submission
       setFormData({
         name: '',
         email: '',
         phone: '',
         subject: '',
-        message: ''
+        message: '',
       });
-      setSubmitted(false);
-    }, 5000);
+    } catch (error) {
+      toast({
+        title: 'Erreur',
+        description: "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.",
+        duration: 5000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -86,7 +120,7 @@ const ContactForm = ({ minimal = false }: { minimal?: boolean }) => {
                 placeholder="Votre nom"
               />
             </div>
-            
+
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-luxury-800 mb-1">
                 Email
@@ -103,7 +137,7 @@ const ContactForm = ({ minimal = false }: { minimal?: boolean }) => {
               />
             </div>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-luxury-800 mb-1">
@@ -119,7 +153,7 @@ const ContactForm = ({ minimal = false }: { minimal?: boolean }) => {
                 placeholder="Votre numéro de téléphone"
               />
             </div>
-            
+
             <div>
               <label htmlFor="subject" className="block text-sm font-medium text-luxury-800 mb-1">
                 Sujet
@@ -132,7 +166,9 @@ const ContactForm = ({ minimal = false }: { minimal?: boolean }) => {
                 required
                 className="w-full px-4 py-3 bg-white border border-luxury-200 rounded-sm focus:ring-1 focus:ring-luxury-500 focus:border-luxury-500 transition-all"
               >
-                <option value="" disabled>Sélectionnez un sujet</option>
+                <option value="" disabled>
+                  Sélectionnez un sujet
+                </option>
                 <option value="devis">Demande de devis</option>
                 <option value="information">Demande d'information</option>
                 <option value="rendez-vous">Prise de rendez-vous</option>
@@ -140,7 +176,7 @@ const ContactForm = ({ minimal = false }: { minimal?: boolean }) => {
               </select>
             </div>
           </div>
-          
+
           <div>
             <label htmlFor="message" className="block text-sm font-medium text-luxury-800 mb-1">
               Message
@@ -156,7 +192,7 @@ const ContactForm = ({ minimal = false }: { minimal?: boolean }) => {
               placeholder="Votre message..."
             ></textarea>
           </div>
-          
+
           <button
             type="submit"
             disabled={isSubmitting}
@@ -164,9 +200,18 @@ const ContactForm = ({ minimal = false }: { minimal?: boolean }) => {
           >
             {isSubmitting ? (
               <>
-                <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <svg
+                  className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
                 </svg>
                 Envoi en cours...
               </>

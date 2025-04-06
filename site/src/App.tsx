@@ -35,6 +35,7 @@ const AdminOrders = lazy(() => import("./pages/admin/Orders"));
 const AdminCustomers = lazy(() => import("./pages/admin/Customers"));
 const AdminCategories = lazy(() => import("./pages/admin/Categories"));
 const MaterialDetails = lazy(() => import("./pages/MaterialDetails"));
+const Privacy = lazy(() => import("./pages/Privacy"));
 
 const queryClient = new QueryClient();
 const ScrollToTop = () => {
@@ -129,6 +130,7 @@ const App = () => (
                   <Route path="/reset-password" element={<ResetPassword />} />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/materials/:material" element={<MaterialDetails />} />
+                  <Route path="/Privacy" element={<Privacy />} />
                   {/* Protected routes */}
                   <Route
                     path="/account/*"

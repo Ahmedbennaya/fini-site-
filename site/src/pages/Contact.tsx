@@ -117,8 +117,7 @@ const Contact = () => {
                   <div>
                     <h3 className="text-lg font-medium mb-2">Bargaoui Rideaux Tahar La Soukra</h3>
                     <p className="text-luxury-600">
-                      143 Avenue UMA La Soukra<br />
-                      Ariana, Tunisia<br />
+                      Téléphone : <a href="tel:+21690251525" className="text-luxury-800 hover:underline">+90 25 15 25</a><br />
                       <a
                         href="https://www.google.com/maps?q=V6CM+H46,+143+Avenue+UMA+2036+Ariana,+Tunis"
                         target="_blank"
@@ -139,8 +138,7 @@ const Contact = () => {
                   <div>
                     <h3 className="text-lg font-medium mb-2">Bargaoui Rideaux Tahar Ennasr 2</h3>
                     <p className="text-luxury-600">
-                      35, 2 Av. Hédi Nouira<br />
-                      Ariana 2037<br />
+                      Téléphone : <a href="tel:+21620204425" className="text-luxury-800 hover:underline">+216 20 20 44 25</a><br />
                       <a
                         href="https://www.google.com/maps?q=35,+2+Av.+H%C3%A9di+Nouira,+Ariana+2037"
                         target="_blank"
@@ -161,8 +159,7 @@ const Contact = () => {
                   <div>
                     <h3 className="text-lg font-medium mb-2">Bargaoui Rideaux Tahar Mourouj 5</h3>
                     <p className="text-luxury-600">
-                      Av des Martyres, 100m après le terminus du métro<br />
-                      À côté de la Banque BH, Mourouj 5 Ben Arousse, 2074<br />
+                      Téléphone : <a href="tel:+21655784848" className="text-luxury-800 hover:underline">+216 55 78 48 48</a><br />
                       <a
                         href="https://www.google.com/maps?q=Av+des+Martyres,+Mourouj+5+Ben+Arousse,+2074"
                         target="_blank"
@@ -183,8 +180,7 @@ const Contact = () => {
                   <div>
                     <h3 className="text-lg font-medium mb-2">Bargaoui Rideaux Tahar Ezzahra</h3>
                     <p className="text-luxury-600">
-                      Comptoire Sfaxien, Route G1 Face<br />
-                      2034<br />
+                      Téléphone : <a href="tel:+21694193192" className="text-luxury-800 hover:underline">+216 94 19 31 92</a><br />
                       <a
                         href="https://www.google.com/maps?q=Comptoire+Sfaxien,+Route+G1+Face,+2034"
                         target="_blank"
@@ -205,8 +201,7 @@ const Contact = () => {
                   <div>
                     <h3 className="text-lg font-medium mb-2">Bargaoui Rideaux Tahar Bizerte</h3>
                     <p className="text-luxury-600">
-                      Entrée de Bizerte, Juste Avant le pont<br />
-                      Zarzouna Bizerte, 7021<br />
+                      Téléphone : <a href="tel:+21623300670" className="text-luxury-800 hover:underline">+216 23 30 06 70</a><br />
                       <a
                         href="https://www.google.com/maps?q=Entr%C3%A9e+de+Bizerte,+Juste+Avant+le+pont,+Zarzouna+Bizerte,+7021"
                         target="_blank"
@@ -227,8 +222,7 @@ const Contact = () => {
                   <div>
                     <h3 className="text-lg font-medium mb-2">Bargaoui Rideaux Tahar Hammamet</h3>
                     <p className="text-luxury-600">
-                      Avenue Abou Dhabi el Mrezga<br />
-                      Hammamet, 8050<br />
+                      Téléphone : <a href="tel:+21622336622" className="text-luxury-800 hover:underline">+216 22 33 66 22</a><br />
                       <a
                         href="https://www.google.com/maps?q=Avenue+Abou+Dhabi+el+Mrezga,+Hammamet,+8050"
                         target="_blank"
@@ -249,8 +243,7 @@ const Contact = () => {
                   <div>
                     <h3 className="text-lg font-medium mb-2">Bargaoui Rideaux Tahar Sousse</h3>
                     <p className="text-luxury-600">
-                      WG2W+XMC, Route Gp1 Face Mall of Sousse<br />
-                      Akouda, 4000<br />
+                      Téléphone : <a href="tel:+21690251515" className="text-luxury-800 hover:underline">+216 90 25 15 15</a><br />
                       <a
                         href="https://www.google.com/maps?q=WG2W+XMC,+Route+Gp1+Face+Mall+of+Sousse,+Akouda,+4000"
                         target="_blank"

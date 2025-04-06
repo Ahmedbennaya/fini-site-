@@ -240,6 +240,36 @@ export type Database = {
         }
         Relationships: []
       }
+      messages: {
+        Row: {
+          id: string; // Primary key
+          name: string;
+          email: string;
+          phone: string | null;
+          subject: string;
+          message: string;
+          created_at: string; // Timestamp
+        };
+        Insert: {
+          id?: string; // Optional for auto-generated IDs
+          name: string;
+          email: string;
+          phone?: string | null;
+          subject: string;
+          message: string;
+          created_at?: string; // Optional for auto-generated timestamps
+        };
+        Update: {
+          id?: string;
+          name?: string;
+          email?: string;
+          phone?: string | null;
+          subject?: string;
+          message?: string;
+          created_at?: string;
+        };
+        Relationships: [];
+      };
     }
     Views: {
       [_ in never]: never
