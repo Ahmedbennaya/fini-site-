@@ -221,7 +221,7 @@ const ContactCTA = () => (
               <Mail className="text-luxury-300 mr-3 flex-shrink-0 mt-1" size={18} />
               <div>
                 <p className="font-medium">Envoyez-nous un email</p>
-                <a href="mailto:contact@bargaoui-rideaux.tn" className="text-white/80 hover:text-white transition-colors">
+                <a href="bargaoui_rideaux@yahoo.fr" className="text-white/80 hover:text-white transition-colors">
 bargaoui_rideaux@yahoo.fr
                 </a>
               </div>
