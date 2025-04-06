@@ -382,7 +382,7 @@ const Index = () => {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Saturday"],
         "opens": "09:00",
-        "closes": "13:00"
+        "closes": "19:00"
       }
     ],
     "sameAs": [
@@ -393,15 +393,50 @@ const Index = () => {
 
   return (
     <main>
-      <Helmet>
-        <title>Bargaoui Rideaux Tahar - Créateur de Rideaux de Luxe en Tunisie depuis 1998</title>
-        <meta name="description" content="Bargaoui Rideaux Tahar, spécialiste des rideaux et textiles d'ameublement de luxe sur mesure depuis 1998. Qualité exceptionnelle, élégance et savoir-faire artisanal tunisien pour votre décoration intérieure." />
-        <meta name="keywords" content="Bargaoui Rideaux, Bargaoui Rideaux Tahar, rideaux de luxe, textiles d'ameublement, rideaux sur mesure, voilage, décoration intérieure, Tunisie, rideaux Tunisie, ameublement Tunisie, rideaux haut de gamme" />
-        <link rel="canonical" href="https://bargaoui-rideauxtahar.netlify.app/" />
-        <script type="application/ld+json">
-          {JSON.stringify(homeSchema)}
-        </script>
-      </Helmet>
+     <Helmet>
+  <title>Bargaoui Rideaux  - Créateur de Rideaux de Luxe en Tunisie depuis 1949</title>
+  <meta 
+    name="description" 
+    content="Découvrez Bargaoui Rideaux, spécialiste des rideaux de luxe et textiles d'ameublement sur mesure en Tunisie. Qualité exceptionnelle, élégance et savoir-faire artisanal depuis 1949." 
+  />
+  <meta 
+    name="keywords" 
+    content="Bargaoui, Tahar, rideaux de luxe, rideaux sur mesure, rideaux Tunisie, textiles d'ameublement, voilage, décoration intérieure, rideaux haut de gamme, ameublement Tunisie, rideaux personnalisés, artisanat tunisien, rideaux pour salon, rideaux modernes, rideaux de qualité" 
+  />
+  <meta name="author" content="Bargaoui Rideaux" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Bargaoui Rideaux - Rideaux de Luxe en Tunisie" />
+  <meta property="og:description" content="Découvrez Bargaoui Rideaux, spécialiste des rideaux de luxe et textiles d'ameublement sur mesure en Tunisie, offrant des créations élégantes et de qualité artisanale." />
+  <meta property="og:url" content="https://bargaoui-rideauxtahar.netlify.app/" />
+  <meta property="og:image" content="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//Logo.jpg" />
+  <meta name="twitter:card" content="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//Logo.jpg" />
+  <meta name="twitter:title" content="Bargaoui Rideaux - Rideaux de Luxe en Tunisie" />
+  <meta name="twitter:description" content="Bargaoui Rideaux est votre expert en rideaux de luxe et textiles d'ameublement sur mesure en Tunisie. Découvrez notre savoir-faire artisanal depuis 1949." />
+  <meta name="twitter:image" content="https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//Logo.jpg" />
+  <link rel="canonical" href="https://bargaoui-rideauxtahar.netlify.app/" />
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Bargaoui Rideaux",
+      "url": "https://bargaoui-rideauxtahar.netlify.app/",
+      "logo": "https://oehbiqlfllyxpueofuob.supabase.co/storage/v1/object/public/products//Logo.jpg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+216-50-92-92-92",
+        "contactType": "Curtain ServiceService de Rideaux",
+        "areaServed": "TN",
+        "availableLanguage": "French"
+      },
+      "sameAs": [
+      "https://www.facebook.com/Bargaoui.Rideaux.Tahar",
+      "https://www.instagram.com/bargaoui_rideaux_tahar"
+    ]
+    })}
+  </script>
+</Helmet>
+
 
       <Hero />
       
