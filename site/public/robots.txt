@@ -1,7 +1,8 @@
 # Bargaoui Rideaux Tahar - Instructions for search engines
 
 User-agent: *
-Allow: /
+Disallow: /
+
 
 User-agent: Googlebot
 Allow: /images/
